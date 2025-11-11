@@ -219,8 +219,8 @@ const QuizInterface = () => {
       </div>
 
       {/* Question Content */}
-      <div className="max-w-4xl mx-auto px-4 py-8">
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 md:p-8 space-y-6">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6">
           {/* Question */}
           <div>
             <div className="flex items-start gap-3">
