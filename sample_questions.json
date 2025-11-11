@@ -1,0 +1,82 @@
+[
+  {
+    "question": "What is the size of int data type in Java?",
+    "options": ["8 bits", "16 bits", "32 bits", "64 bits"],
+    "answer": "32 bits",
+    "category": "Data Types",
+    "difficulty": "easy",
+    "explanation": "In Java, int is a 32-bit signed integer"
+  },
+  {
+    "question": "Which keyword is used to inherit a class in Java?",
+    "options": ["extends", "implements", "inherits", "super"],
+    "answer": "extends",
+    "category": "OOP Concepts",
+    "difficulty": "easy",
+    "explanation": "The extends keyword is used for class inheritance"
+  },
+  {
+    "question": "What is polymorphism in Java?",
+    "options": ["Method overloading", "Method overriding", "Both A and B", "None of the above"],
+    "answer": "Both A and B",
+    "category": "OOP Concepts",
+    "difficulty": "medium",
+    "explanation": "Polymorphism in Java includes both compile-time (overloading) and runtime (overriding) polymorphism"
+  },
+  {
+    "question": "Which collection class allows duplicate elements?",
+    "options": ["HashSet", "TreeSet", "ArrayList", "HashMap"],
+    "answer": "ArrayList",
+    "category": "Collections",
+    "difficulty": "medium",
+    "explanation": "ArrayList allows duplicate elements, while Set implementations do not"
+  },
+  {
+    "question": "What is the default value of a boolean variable in Java?",
+    "options": ["true", "false", "0", "null"],
+    "answer": "false",
+    "category": "Data Types",
+    "difficulty": "easy",
+    "explanation": "The default value of a boolean variable is false"
+  },
+  {
+    "question": "Which method is used to start a thread in Java?",
+    "options": ["run()", "start()", "init()", "begin()"],
+    "answer": "start()",
+    "category": "Multithreading",
+    "difficulty": "medium",
+    "explanation": "The start() method is used to begin thread execution, which then calls run()"
+  },
+  {
+    "question": "What is the purpose of the final keyword in Java?",
+    "options": ["To create constants", "To prevent inheritance", "To prevent method overriding", "All of the above"],
+    "answer": "All of the above",
+    "category": "Keywords",
+    "difficulty": "medium",
+    "explanation": "The final keyword can be used for variables, methods, and classes to prevent modification, overriding, and inheritance respectively"
+  },
+  {
+    "question": "Which interface must be implemented to create a thread by implementing an interface?",
+    "options": ["Runnable", "Callable", "Thread", "Executor"],
+    "answer": "Runnable",
+    "category": "Multithreading",
+    "difficulty": "easy",
+    "explanation": "The Runnable interface must be implemented to create a thread"
+  },
+  {
+    "question": "What is the output of: System.out.println(10 + 20 + \"Hello\")?",
+    "options": ["1020Hello", "30Hello", "Hello1020", "Hello30"],
+    "answer": "30Hello",
+    "category": "Operators",
+    "difficulty": "hard",
+    "explanation": "Numbers are added first (10+20=30), then concatenated with the string"
+  },
+  {
+    "question": "Which exception is thrown when dividing by zero in Java?",
+    "options": ["ArithmeticException", "NumberFormatException", "NullPointerException", "DivideByZeroException"],
+    "answer": "ArithmeticException",
+    "category": "Exception Handling",
+    "difficulty": "easy",
+    "explanation": "ArithmeticException is thrown for arithmetic errors like division by zero"
+  }
+]
