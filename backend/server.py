@@ -7,7 +7,8 @@ from routes import auth_routes, admin_routes, user_routes
 app = FastAPI(
     title="Java Quiz App API",
     description="Backend API for Java Quiz Application with Question Management",
-    version="1.0.0"
+    version="1.0.0",
+    lifespan=lifespan
 )
 
 # CORS configuration
