@@ -65,6 +65,9 @@ const QuizInterface = () => {
       setTimeRemaining(response.data.length * 60); // 1 minute per question
       setQuizStarted(true);
       
+      // Check bookmark status for all questions
+      checkAllBookmarks(response.data);
+      
       // Auto-start tutorial on first quiz
       const hasSeenQuizInterface = localStorage.getItem('hasSeenQuizInterface');
       if (!hasSeenQuizInterface && tutorialEnabled && !isTutorialCompleted(TUTORIAL_IDS.QUIZ_INTERFACE)) {
@@ -79,6 +82,49 @@ const QuizInterface = () => {
       navigate('/user/quiz');
     } finally {
       setLoading(false);
+    }
+  };
+
+  const checkAllBookmarks = async (questionsToCheck) => {
+    try {
+      const bookmarkStatuses = await Promise.all(
+        questionsToCheck.map(q => userAPI.checkBookmarkStatus(q.id))
+      );
+      const bookmarked = new Set(
+        questionsToCheck
+          .filter((_, idx) => bookmarkStatuses[idx].data.is_bookmarked)
+          .map(q => q.id)
+      );
+      setBookmarkedQuestions(bookmarked);
+    } catch (error) {
+      console.error('Error checking bookmarks:', error);
+    }
+  };
+
+  const handleToggleBookmark = async (questionId) => {
+    const isBookmarked = bookmarkedQuestions.has(questionId);
+    
+    setBookmarkLoading(prev => ({ ...prev, [questionId]: true }));
+    
+    try {
+      if (isBookmarked) {
+        await userAPI.removeBookmark(questionId);
+        setBookmarkedQuestions(prev => {
+          const newSet = new Set(prev);
+          newSet.delete(questionId);
+          return newSet;
+        });
+        showToast('Bookmark removed', 'success');
+      } else {
+        await userAPI.addBookmark(questionId);
+        setBookmarkedQuestions(prev => new Set([...prev, questionId]));
+        showToast('Question bookmarked for later review', 'success');
+      }
+    } catch (error) {
+      console.error('Error toggling bookmark:', error);
+      showToast(error.response?.data?.detail || 'Failed to update bookmark', 'error');
+    } finally {
+      setBookmarkLoading(prev => ({ ...prev, [questionId]: false }));
     }
   };
 
