@@ -149,7 +149,10 @@ const QuestionManagement = () => {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Question Management</h1>
+            <div className="flex items-center gap-3">
+              <h1 className="text-3xl font-bold text-gray-900">Question Management</h1>
+              <TutorialButton tutorialId={TUTORIAL_IDS.QUESTION_MANAGEMENT} />
+            </div>
             <p className="text-gray-600 mt-1">
               {filteredQuestions.length} questions found
             </p>
