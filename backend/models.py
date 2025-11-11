@@ -64,3 +64,13 @@ class BulkUploadResponse(BaseModel):
     failed: int
     total: int
     errors: List[str] = []
+
+class BookmarkCreate(BaseModel):
+    question_id: str
+
+class BookmarkResponse(BaseModel):
+    id: str
+    user_id: str
+    question_id: str
+    question: QuestionResponse
+    created_at: datetime
