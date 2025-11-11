@@ -127,19 +127,19 @@ const UserDashboard = () => {
         </div>
 
         {/* Quick Start Quiz */}
-        <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl shadow-lg p-8 text-white">
+        <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl shadow-lg p-6 xs:p-8 text-white">
           <div className="max-w-3xl mx-auto text-center">
-            <PlayCircle className="w-16 h-16 mx-auto mb-4" />
-            <h2 className="text-2xl font-bold mb-2">Ready to Test Your Knowledge?</h2>
-            <p className="text-blue-100 mb-6">
+            <PlayCircle className="w-12 h-12 xs:w-16 xs:h-16 mx-auto mb-4" />
+            <h2 className="text-xl xs:text-2xl font-bold mb-2">Ready to Test Your Knowledge?</h2>
+            <p className="text-sm xs:text-base text-blue-100 mb-6">
               Choose a category and difficulty level to start a quiz
             </p>
             <Link
               to="/user/quiz"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-blue-50 transition-colors"
+              className="inline-flex items-center gap-2 px-5 xs:px-6 py-2.5 xs:py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-blue-50 transition-colors text-sm xs:text-base"
               data-testid="start-quiz-button"
             >
-              <PlayCircle className="w-5 h-5" />
+              <PlayCircle className="w-4 h-4 xs:w-5 xs:h-5" />
               Start Quiz Now
             </Link>
           </div>
