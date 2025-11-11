@@ -80,17 +80,16 @@ const TutorialOverlay = () => {
 
   return (
     <>
-      {/* Overlay - click to skip */}
+      {/* Overlay - non-interactive background */}
       <div 
-        className="fixed inset-0 bg-black bg-opacity-50 z-[9998] transition-opacity duration-300" 
-        onClick={skipTutorial}
+        className="fixed inset-0 bg-black bg-opacity-50 z-[999] transition-opacity duration-300 pointer-events-none" 
         data-testid="tutorial-overlay-backdrop"
       />
 
       {/* Highlight Spotlight */}
       {targetElement && step.placement !== 'center' && (
         <div
-          className="fixed z-[9999] pointer-events-none transition-all duration-300"
+          className="fixed z-[1000] pointer-events-none transition-all duration-300"
           style={{
             top: `${targetElement.getBoundingClientRect().top - 4}px`,
             left: `${targetElement.getBoundingClientRect().left - 4}px`,
@@ -105,7 +104,7 @@ const TutorialOverlay = () => {
       {/* Tooltip */}
       <div
         ref={tooltipRef}
-        className="fixed z-[10000] bg-white rounded-lg shadow-2xl p-6 max-w-md animate-fadeIn"
+        className="fixed z-[1001] bg-white rounded-lg shadow-2xl p-6 max-w-md animate-fadeIn pointer-events-auto"
         style={{
           top: `${tooltipPosition.top}px`,
           left: `${tooltipPosition.left}px`,
