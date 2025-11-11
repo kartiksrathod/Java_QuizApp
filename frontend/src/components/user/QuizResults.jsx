@@ -76,7 +76,7 @@ const QuizResults = () => {
       <div className="max-w-4xl mx-auto space-y-6" data-testid="quiz-results">
         {/* Results Header */}
         <div
-          className={`rounded-xl shadow-lg p-8 text-white text-center ${
+          className={`rounded-xl shadow-lg p-6 xs:p-8 text-white text-center ${
             isPassed
               ? 'bg-gradient-to-r from-green-500 to-emerald-600'
               : 'bg-gradient-to-r from-red-500 to-rose-600'
@@ -84,15 +84,15 @@ const QuizResults = () => {
         >
           <div className="flex justify-center mb-4">
             {isPassed ? (
-              <Trophy className="w-20 h-20" />
+              <Trophy className="w-16 h-16 xs:w-20 xs:h-20" />
             ) : (
-              <XCircle className="w-20 h-20" />
+              <XCircle className="w-16 h-16 xs:w-20 xs:h-20" />
             )}
           </div>
-          <h1 className="text-3xl font-bold mb-2">
+          <h1 className="text-2xl xs:text-3xl font-bold mb-2">
             {isPassed ? 'Congratulations! 🎉' : 'Keep Practicing! 💪'}
           </h1>
-          <p className="text-lg opacity-90">
+          <p className="text-base xs:text-lg opacity-90">
             {isPassed
               ? 'You passed the quiz with flying colors!'
               : 'Don\'t worry, practice makes perfect!'}
