@@ -168,24 +168,24 @@ const Profile = () => {
         </div>
 
         {/* Stats */}
-        <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl shadow-lg p-6 text-white">
-          <h3 className="text-lg font-semibold mb-4">Your Statistics</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center">
-              <p className="text-3xl font-bold">0</p>
-              <p className="text-sm opacity-90 mt-1">Quizzes Taken</p>
+        <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl shadow-lg p-4 sm:p-6 text-white">
+          <h3 className="text-base sm:text-lg font-semibold mb-4">Your Statistics</h3>
+          <div className="grid grid-cols-2 xs:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4 text-center">
+              <p className="text-2xl xs:text-3xl font-bold">0</p>
+              <p className="text-xs sm:text-sm opacity-90 mt-1">Quizzes Taken</p>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center">
-              <p className="text-3xl font-bold">0</p>
-              <p className="text-sm opacity-90 mt-1">Total Points</p>
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4 text-center">
+              <p className="text-2xl xs:text-3xl font-bold">0</p>
+              <p className="text-xs sm:text-sm opacity-90 mt-1">Total Points</p>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center">
-              <p className="text-3xl font-bold">0%</p>
-              <p className="text-sm opacity-90 mt-1">Avg Score</p>
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4 text-center">
+              <p className="text-2xl xs:text-3xl font-bold">0%</p>
+              <p className="text-xs sm:text-sm opacity-90 mt-1">Avg Score</p>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center">
-              <p className="text-3xl font-bold">0</p>
-              <p className="text-sm opacity-90 mt-1">Bookmarks</p>
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4 text-center">
+              <p className="text-2xl xs:text-3xl font-bold">0</p>
+              <p className="text-xs sm:text-sm opacity-90 mt-1">Bookmarks</p>
             </div>
           </div>
         </div>
