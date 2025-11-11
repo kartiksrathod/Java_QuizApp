@@ -145,13 +145,13 @@ const AdminDashboard = () => {
         {/* Charts */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Difficulty Distribution */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-              <BarChart3 className="w-5 h-5" />
+          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6">
+            <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+              <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5" />
               Difficulty Distribution
             </h3>
             {difficultyData.length > 0 ? (
-              <ResponsiveContainer width="100%" height={250}>
+              <ResponsiveContainer width="100%" height={220}>
                 <PieChart>
                   <Pie
                     data={difficultyData}
@@ -159,7 +159,7 @@ const AdminDashboard = () => {
                     cy="50%"
                     labelLine={false}
                     label={(entry) => `${entry.name}: ${entry.value}`}
-                    outerRadius={80}
+                    outerRadius={70}
                     fill="#8884d8"
                     dataKey="value"
                   >
@@ -171,28 +171,34 @@ const AdminDashboard = () => {
                 </PieChart>
               </ResponsiveContainer>
             ) : (
-              <p className="text-center text-gray-500 py-10">No data available</p>
+              <p className="text-center text-gray-500 py-10 text-sm">No data available</p>
             )}
           </div>
 
           {/* Category Distribution */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-              <BarChart3 className="w-5 h-5" />
+          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6">
+            <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+              <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5" />
               Top Categories
             </h3>
             {categoryData.length > 0 ? (
-              <ResponsiveContainer width="100%" height={250}>
+              <ResponsiveContainer width="100%" height={220}>
                 <BarChart data={categoryData}>
                   <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="name" angle={-45} textAnchor="end" height={100} />
-                  <YAxis />
+                  <XAxis 
+                    dataKey="name" 
+                    angle={-45} 
+                    textAnchor="end" 
+                    height={100}
+                    tick={{ fontSize: 12 }}
+                  />
+                  <YAxis tick={{ fontSize: 12 }} />
                   <Tooltip />
                   <Bar dataKey="questions" fill="#3B82F6" />
                 </BarChart>
               </ResponsiveContainer>
             ) : (
-              <p className="text-center text-gray-500 py-10">No data available</p>
+              <p className="text-center text-gray-500 py-10 text-sm">No data available</p>
             )}
           </div>
         </div>
