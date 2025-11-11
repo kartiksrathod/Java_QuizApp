@@ -345,13 +345,13 @@ const QuizInterface = () => {
 
         {/* Question Navigator */}
         <div className="mt-6 bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6">
-          <h3 className="text-sm font-semibold text-gray-900 mb-3">Question Navigator</h3>
-          <div className="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-12 gap-2">
+          <h3 className="text-xs xs:text-sm font-semibold text-gray-900 mb-3">Question Navigator</h3>
+          <div className="grid grid-cols-6 xs:grid-cols-8 sm:grid-cols-10 md:grid-cols-12 lg:grid-cols-15 gap-2">
             {questions.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setCurrentQuestionIndex(idx)}
-                className={`h-10 sm:h-12 rounded-lg font-medium text-xs sm:text-sm transition-all touch-manipulation ${
+                className={`h-10 xs:h-12 rounded-lg font-medium text-xs xs:text-sm transition-all touch-manipulation ${
                   idx === currentQuestionIndex
                     ? 'bg-blue-600 text-white shadow-md'
                     : answers[idx]
