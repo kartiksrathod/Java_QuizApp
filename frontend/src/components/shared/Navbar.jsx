@@ -109,7 +109,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-gray-200 bg-white">
+        <div className="md:hidden border-t border-gray-200 bg-white" data-testid="mobile-menu">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {links.map((link) => {
               const Icon = link.icon;
@@ -120,11 +120,12 @@ const Navbar = () => {
                   to={link.to}
                   onClick={() => setMobileMenuOpen(false)}
                   className={cn(
-                    'flex items-center gap-3 px-3 py-2 rounded-lg text-base font-medium transition-colors',
+                    'flex items-center gap-3 px-3 py-2 rounded-lg text-base font-medium transition-colors min-h-[44px]',
                     isActive
                       ? 'bg-blue-50 text-blue-700'
                       : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                   )}
+                  data-testid={`mobile-nav-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
                 >
                   <Icon className="w-5 h-5" />
                   {link.label}
