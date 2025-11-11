@@ -14,13 +14,26 @@ import { statsAPI } from '../../services/api';
 import LoadingSpinner from '../shared/LoadingSpinner';
 import Layout from '../shared/Layout';
 import { showToast } from '../shared/Toast';
+import { useTutorial } from '../../context/TutorialContext';
+import { TUTORIAL_IDS } from '../../utils/tutorialSteps';
+import TutorialButton from '../shared/Tutorial/TutorialButton';
 
 const AdminDashboard = () => {
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
+  const { startTutorial, isTutorialCompleted, tutorialEnabled } = useTutorial();
 
   useEffect(() => {
     fetchStats();
+    
+    // Auto-start tutorial on first visit
+    const hasSeenAdminDashboard = localStorage.getItem('hasSeenAdminDashboard');
+    if (!hasSeenAdminDashboard && tutorialEnabled && !isTutorialCompleted(TUTORIAL_IDS.ADMIN_DASHBOARD)) {
+      setTimeout(() => {
+        startTutorial(TUTORIAL_IDS.ADMIN_DASHBOARD);
+        localStorage.setItem('hasSeenAdminDashboard', 'true');
+      }, 1000);
+    }
   }, []);
 
   const fetchStats = async () => {
