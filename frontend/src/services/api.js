@@ -78,6 +78,10 @@ export const adminAPI = {
 export const userAPI = {
   getQuestions: (params) => api.get('/user/questions', { params }),
   getCategories: () => api.get('/user/categories'),
+  addBookmark: (questionId) => api.post('/user/bookmarks/add', { question_id: questionId }),
+  removeBookmark: (questionId) => api.delete(`/user/bookmarks/remove/${questionId}`),
+  getBookmarks: () => api.get('/user/bookmarks'),
+  checkBookmarkStatus: (questionId) => api.get(`/user/bookmarks/check/${questionId}`),
 };
 
 // Stats API (we can calculate from questions)
