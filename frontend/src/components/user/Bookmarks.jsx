@@ -57,11 +57,11 @@ const Bookmarks = () => {
       <div className="max-w-4xl mx-auto space-y-6" data-testid="bookmarks-page">
         {/* Header */}
         <div className="text-center">
-          <div className="flex items-center justify-center gap-3 mb-2">
-            <BookmarkCheck className="w-8 h-8 text-blue-600" />
-            <h1 className="text-3xl font-bold text-gray-900">My Bookmarks</h1>
+          <div className="flex items-center justify-center gap-2 xs:gap-3 mb-2">
+            <BookmarkCheck className="w-6 h-6 xs:w-8 xs:h-8 text-blue-600" />
+            <h1 className="text-2xl xs:text-3xl font-bold text-gray-900">My Bookmarks</h1>
           </div>
-          <p className="text-gray-600 mt-2">
+          <p className="text-sm xs:text-base text-gray-600 mt-2">
             {bookmarks.length > 0 
               ? `You have ${bookmarks.length} bookmarked question${bookmarks.length !== 1 ? 's' : ''}`
               : 'Save questions for later review'
