@@ -67,6 +67,15 @@
   .transition-smooth {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
+  
+  /* Card hover effect */
+  .card-hover {
+    @apply transition-all duration-200;
+  }
+  
+  .card-hover:hover {
+    @apply transform scale-[1.02] shadow-lg;
+  }
 }
 
 /* Mobile optimizations */
@@ -78,5 +87,16 @@
   /* Ensure buttons are touch-friendly (min 44px) */
   button, a[role="button"] {
     min-height: 44px;
+  }
+}
+
+/* Table responsive improvements */
+@media (max-width: 768px) {
+  table {
+    font-size: 0.875rem;
+  }
+  
+  th, td {
+    padding: 0.75rem 0.5rem !important;
   }
 }
