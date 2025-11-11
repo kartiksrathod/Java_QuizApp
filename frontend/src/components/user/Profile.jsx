@@ -77,6 +77,96 @@ const Profile = () => {
           </div>
         </div>
 
+        {/* Tutorial Settings */}
+        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+            <HelpCircle className="w-5 h-5" />
+            Tutorial & Help Settings
+          </h3>
+          
+          <div className="space-y-4">
+            {/* Enable/Disable Tutorials */}
+            <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+              <div>
+                <p className="font-medium text-gray-900">Enable Tutorials</p>
+                <p className="text-sm text-gray-600">Show helpful tutorials when visiting pages</p>
+              </div>
+              <button
+                onClick={toggleTutorials}
+                className={`p-2 rounded-lg transition-colors ${
+                  tutorialEnabled ? 'text-blue-600 hover:bg-blue-50' : 'text-gray-400 hover:bg-gray-100'
+                }`}
+                data-testid="toggle-tutorials-button"
+              >
+                {tutorialEnabled ? <ToggleRight className="w-8 h-8" /> : <ToggleLeft className="w-8 h-8" />}
+              </button>
+            </div>
+
+            {/* Reset All Tutorials */}
+            <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+              <div>
+                <p className="font-medium text-gray-900">Reset All Tutorials</p>
+                <p className="text-sm text-gray-600">Clear tutorial progress and start over</p>
+              </div>
+              <button
+                onClick={resetAllTutorials}
+                className="px-4 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2"
+                data-testid="reset-tutorials-button"
+              >
+                <RotateCcw className="w-4 h-4" />
+                Reset All
+              </button>
+            </div>
+
+            {/* Restart Specific Tutorials */}
+            <div className="border-t border-gray-200 pt-4">
+              <p className="text-sm font-medium text-gray-700 mb-3">Restart Specific Tutorial:</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {user.role === 'user' && (
+                  <>
+                    <button
+                      onClick={() => startTutorial(TUTORIAL_IDS.USER_DASHBOARD)}
+                      className="px-4 py-2 text-sm border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors flex items-center justify-center gap-2"
+                      disabled={!tutorialEnabled}
+                    >
+                      <HelpCircle className="w-4 h-4" />
+                      User Dashboard
+                    </button>
+                    <button
+                      onClick={() => startTutorial(TUTORIAL_IDS.QUIZ_INTERFACE)}
+                      className="px-4 py-2 text-sm border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors flex items-center justify-center gap-2"
+                      disabled={!tutorialEnabled}
+                    >
+                      <HelpCircle className="w-4 h-4" />
+                      Quiz Interface
+                    </button>
+                  </>
+                )}
+                {user.role === 'admin' && (
+                  <>
+                    <button
+                      onClick={() => startTutorial(TUTORIAL_IDS.ADMIN_DASHBOARD)}
+                      className="px-4 py-2 text-sm border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors flex items-center justify-center gap-2"
+                      disabled={!tutorialEnabled}
+                    >
+                      <HelpCircle className="w-4 h-4" />
+                      Admin Dashboard
+                    </button>
+                    <button
+                      onClick={() => startTutorial(TUTORIAL_IDS.QUESTION_MANAGEMENT)}
+                      className="px-4 py-2 text-sm border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors flex items-center justify-center gap-2"
+                      disabled={!tutorialEnabled}
+                    >
+                      <HelpCircle className="w-4 h-4" />
+                      Question Management
+                    </button>
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Stats */}
         <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl shadow-lg p-6 text-white">
           <h3 className="text-lg font-semibold mb-4">Your Statistics</h3>
