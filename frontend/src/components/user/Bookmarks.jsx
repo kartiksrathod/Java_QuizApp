@@ -136,9 +136,10 @@ const Bookmarks = () => {
                     {/* Remove Button */}
                     <button
                       onClick={() => handleRemoveBookmark(bookmark.question_id)}
-                      className="flex-shrink-0 p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                      className="flex-shrink-0 p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center touch-manipulation"
                       title="Remove bookmark"
                       data-testid="remove-bookmark-button"
+                      aria-label="Remove bookmark"
                     >
                       <Trash2 className="w-5 h-5" />
                     </button>
