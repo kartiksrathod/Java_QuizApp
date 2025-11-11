@@ -80,8 +80,12 @@ const TutorialOverlay = () => {
 
   return (
     <>
-      {/* Overlay */}
-      <div className="fixed inset-0 bg-black bg-opacity-50 z-[9998] transition-opacity duration-300" />
+      {/* Overlay - click to skip */}
+      <div 
+        className="fixed inset-0 bg-black bg-opacity-50 z-[9998] transition-opacity duration-300" 
+        onClick={skipTutorial}
+        data-testid="tutorial-overlay-backdrop"
+      />
 
       {/* Highlight Spotlight */}
       {targetElement && step.placement !== 'center' && (
