@@ -1,8 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
+import { TutorialProvider } from './context/TutorialContext';
 import { ToastContainer } from './components/shared/Toast';
 import ProtectedRoute from './components/shared/ProtectedRoute';
+import TutorialOverlay from './components/shared/Tutorial/TutorialOverlay';
 import './App.css';
 
 // Auth Components
@@ -24,9 +26,11 @@ import Bookmarks from './components/user/Bookmarks';
 function App() {
   return (
     <AuthProvider>
-      <BrowserRouter>
-        <ToastContainer />
-        <Routes>
+      <TutorialProvider>
+        <BrowserRouter>
+          <ToastContainer />
+          <TutorialOverlay />
+          <Routes>
           {/* Public Routes */}
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
