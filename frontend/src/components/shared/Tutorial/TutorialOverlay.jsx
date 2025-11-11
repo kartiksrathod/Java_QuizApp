@@ -82,8 +82,9 @@ const TutorialOverlay = () => {
     <>
       {/* Overlay - non-interactive background */}
       <div 
-        className="fixed inset-0 bg-black bg-opacity-50 z-[999] transition-opacity duration-300 pointer-events-none" 
+        className="fixed inset-0 bg-black bg-opacity-50 z-[999] transition-opacity duration-300" 
         data-testid="tutorial-overlay-backdrop"
+        style={{ pointerEvents: 'none' }}
       />
 
       {/* Highlight Spotlight */}
