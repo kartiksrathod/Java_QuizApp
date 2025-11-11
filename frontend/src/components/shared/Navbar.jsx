@@ -120,15 +120,15 @@ const Navbar = () => {
                   to={link.to}
                   onClick={() => setMobileMenuOpen(false)}
                   className={cn(
-                    'flex items-center gap-3 px-3 py-2 rounded-lg text-base font-medium transition-colors min-h-[44px]',
+                    'flex items-center gap-3 px-3 py-3 rounded-lg text-base font-medium transition-colors min-h-[48px] touch-manipulation',
                     isActive
                       ? 'bg-blue-50 text-blue-700'
                       : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                   )}
                   data-testid={`mobile-nav-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
                 >
-                  <Icon className="w-5 h-5" />
-                  {link.label}
+                  <Icon className="w-5 h-5 flex-shrink-0" />
+                  <span className="flex-1">{link.label}</span>
                 </Link>
               );
             })}
