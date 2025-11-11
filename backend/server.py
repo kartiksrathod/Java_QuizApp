@@ -1,26 +1,13 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import os
-from contextlib import asynccontextmanager
 
 from routes import auth_routes, admin_routes, user_routes
-
-# Startup event to create default admin
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    """Initialize default admin user on startup"""
-    try:
-        from init_admin import create_default_admin
-        create_default_admin()
-    except Exception as e:
-        print(f"Warning: Could not create default admin: {e}")
-    yield
 
 app = FastAPI(
     title="Java Quiz App API",
     description="Backend API for Java Quiz Application with Question Management",
-    version="1.0.0",
-    lifespan=lifespan
+    version="1.0.0"
 )
 
 # CORS configuration
