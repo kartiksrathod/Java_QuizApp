@@ -198,18 +198,26 @@ const QuizResults = () => {
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <Link
             to="/user/quiz"
-            className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+            className="flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
             data-testid="take-another-quiz-button"
           >
             <RotateCw className="w-5 h-5" />
             Take Another Quiz
           </Link>
           <Link
+            to="/user/bookmarks"
+            className="flex items-center justify-center gap-2 px-6 py-3 bg-yellow-500 text-white font-semibold rounded-lg hover:bg-yellow-600 transition-colors"
+            data-testid="view-bookmarks-button"
+          >
+            <BookmarkCheck className="w-5 h-5" />
+            View Bookmarks
+          </Link>
+          <Link
             to="/user/dashboard"
-            className="flex-1 flex items-center justify-center gap-2 px-6 py-3 border border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition-colors"
+            className="flex items-center justify-center gap-2 px-6 py-3 border border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition-colors"
           >
             <Home className="w-5 h-5" />
             Back to Dashboard
