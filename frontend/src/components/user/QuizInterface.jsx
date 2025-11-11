@@ -5,6 +5,8 @@ import { userAPI } from '../../services/api';
 import LoadingSpinner from '../shared/LoadingSpinner';
 import { showToast } from '../shared/Toast';
 import { formatTime, calculateScore } from '../../utils/helpers';
+import { useTutorial } from '../../context/TutorialContext';
+import { TUTORIAL_IDS } from '../../utils/tutorialSteps';
 
 const QuizInterface = () => {
   const navigate = useNavigate();
@@ -16,6 +18,7 @@ const QuizInterface = () => {
   const [loading, setLoading] = useState(true);
   const [quizStarted, setQuizStarted] = useState(false);
   const [quizCompleted, setQuizCompleted] = useState(false);
+  const { startTutorial, isTutorialCompleted, tutorialEnabled } = useTutorial();
 
   useEffect(() => {
     fetchQuestions();
