@@ -10,9 +10,9 @@ import os
 import sys
 from datetime import datetime
 
-# Backend URL
+# Backend URL - Use the same URL as frontend
 BASE_URL = "http://localhost:8001"
-API_BASE = f"{BASE_URL}/api"
+API_BASE = "http://localhost:8001/api"
 
 # Test data
 ADMIN_USER = {
