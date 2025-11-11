@@ -19,6 +19,9 @@ import EditQuestionForm from './EditQuestionForm';
 import BulkUploadDialog from './BulkUploadDialog';
 import PDFGeneratorDialog from './PDFGeneratorDialog';
 import { downloadFile } from '../../utils/helpers';
+import { useTutorial } from '../../context/TutorialContext';
+import { TUTORIAL_IDS } from '../../utils/tutorialSteps';
+import TutorialButton from '../shared/Tutorial/TutorialButton';
 
 const QuestionManagement = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -34,6 +37,7 @@ const QuestionManagement = () => {
   const [showBulkUpload, setShowBulkUpload] = useState(false);
   const [showPDFGenerator, setShowPDFGenerator] = useState(false);
   const [editingQuestion, setEditingQuestion] = useState(null);
+  const { startTutorial, isTutorialCompleted, tutorialEnabled } = useTutorial();
 
   useEffect(() => {
     fetchQuestions();
@@ -44,6 +48,15 @@ const QuestionManagement = () => {
     if (action === 'add') setShowAddForm(true);
     if (action === 'upload') setShowBulkUpload(true);
     if (action === 'export') setShowPDFGenerator(true);
+    
+    // Auto-start tutorial on first visit
+    const hasSeenQuestionMgmt = localStorage.getItem('hasSeenQuestionMgmt');
+    if (!hasSeenQuestionMgmt && tutorialEnabled && !isTutorialCompleted(TUTORIAL_IDS.QUESTION_MANAGEMENT)) {
+      setTimeout(() => {
+        startTutorial(TUTORIAL_IDS.QUESTION_MANAGEMENT);
+        localStorage.setItem('hasSeenQuestionMgmt', 'true');
+      }, 1000);
+    }
   }, []);
 
   useEffect(() => {
