@@ -311,20 +311,21 @@ const QuizInterface = () => {
           )}
 
           {/* Navigation Buttons */}
-          <div className="flex items-center justify-between pt-4 border-t border-gray-200">
+          <div className="flex items-center justify-between pt-4 border-t border-gray-200 gap-2">
             <button
               onClick={handlePrevious}
               disabled={currentQuestionIndex === 0}
-              className="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-4 sm:px-6 py-2.5 sm:py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation text-sm sm:text-base font-medium"
+              data-testid="quiz-previous-button"
             >
               Previous
             </button>
 
-            <div className="flex gap-3">
+            <div className="flex gap-2 sm:gap-3">
               {currentQuestionIndex < questions.length - 1 ? (
                 <button
                   onClick={handleNext}
-                  className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                  className="px-4 sm:px-6 py-2.5 sm:py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors touch-manipulation text-sm sm:text-base font-medium"
                   data-testid="quiz-next-button"
                 >
                   Next
@@ -332,7 +333,7 @@ const QuizInterface = () => {
               ) : (
                 <button
                   onClick={handleSubmitQuiz}
-                  className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+                  className="px-4 sm:px-6 py-2.5 sm:py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors touch-manipulation text-sm sm:text-base font-medium"
                   data-testid="quiz-submit-button"
                 >
                   Submit Quiz
