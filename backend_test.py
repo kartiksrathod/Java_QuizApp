@@ -298,32 +298,22 @@ def test_access_control():
     
     # 1. Try admin endpoint with user token (should fail with 403)
     if user_token:
-        url = f"{API_BASE}/admin/questions/add"
-        headers = {"Authorization": f"Bearer {user_token}", "Content-Type": "application/json"}
-        
-        try:
-            response = requests.post(url, headers=headers, json=SAMPLE_QUESTION)
-            if response and response.status_code == 403:
-                print_result("/admin/questions/add (with user token)", "POST", response.status_code, True, "Correctly blocked user from admin endpoint")
-            else:
-                error_detail = response.json().get("detail", "Unknown error") if response else "No response"
-                print_result("/admin/questions/add (with user token)", "POST", response.status_code if response else "N/A", False, f"Access control issue: {error_detail}")
-        except Exception as e:
-            print_result("/admin/questions/add (with user token)", "POST", "N/A", False, f"Request failed: {e}")
+        response = make_request("POST", "/admin/questions/add", SAMPLE_QUESTION, token=user_token)
+        if response and response.status_code == 403:
+            print_result("/admin/questions/add (with user token)", "POST", response.status_code, True, "Correctly blocked user from admin endpoint")
+        else:
+            error_detail = response.json().get("detail", "Unknown error") if response else "No response"
+            print_result("/admin/questions/add (with user token)", "POST", response.status_code if response else "N/A", False, f"Access control issue: {error_detail}")
     else:
         print_result("/admin/questions/add (with user token)", "POST", "N/A", False, "No user token available")
     
     # 2. Try admin endpoint without token (should fail with 401)
-    try:
-        url = f"{API_BASE}/admin/questions/get_all"
-        response = requests.get(url)
-        if response and response.status_code == 401:
-            print_result("/admin/questions/get_all (no token)", "GET", response.status_code, True, "Correctly requires authentication")
-        else:
-            error_detail = response.json().get("detail", "Unknown error") if response else "No response"
-            print_result("/admin/questions/get_all (no token)", "GET", response.status_code if response else "N/A", False, f"Auth issue: {error_detail}")
-    except Exception as e:
-        print_result("/admin/questions/get_all (no token)", "GET", "N/A", False, f"Request failed: {e}")
+    response = make_request("GET", "/admin/questions/get_all")
+    if response and response.status_code == 401:
+        print_result("/admin/questions/get_all (no token)", "GET", response.status_code, True, "Correctly requires authentication")
+    else:
+        error_detail = response.json().get("detail", "Unknown error") if response else "No response"
+        print_result("/admin/questions/get_all (no token)", "GET", response.status_code if response else "N/A", False, f"Auth issue: {error_detail}")
 
 def run_all_tests():
     """Run all test suites"""
