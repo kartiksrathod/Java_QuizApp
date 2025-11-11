@@ -12,6 +12,9 @@ import { userAPI } from '../../services/api';
 import LoadingSpinner from '../shared/LoadingSpinner';
 import Layout from '../shared/Layout';
 import { showToast } from '../shared/Toast';
+import { useTutorial } from '../../context/TutorialContext';
+import { TUTORIAL_IDS } from '../../utils/tutorialSteps';
+import TutorialButton from '../shared/Tutorial/TutorialButton';
 
 const UserDashboard = () => {
   const [categories, setCategories] = useState([]);
@@ -22,9 +25,19 @@ const UserDashboard = () => {
     avgScore: 0,
     bookmarked: 0,
   });
+  const { startTutorial, isTutorialCompleted, tutorialEnabled } = useTutorial();
 
   useEffect(() => {
     fetchCategories();
+    
+    // Auto-start tutorial on first visit
+    const hasSeenDashboard = localStorage.getItem('hasSeenUserDashboard');
+    if (!hasSeenDashboard && tutorialEnabled && !isTutorialCompleted(TUTORIAL_IDS.USER_DASHBOARD)) {
+      setTimeout(() => {
+        startTutorial(TUTORIAL_IDS.USER_DASHBOARD);
+        localStorage.setItem('hasSeenUserDashboard', 'true');
+      }, 1000);
+    }
   }, []);
 
   const fetchCategories = async () => {
