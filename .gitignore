@@ -6,24 +6,52 @@ __pycache__/
 .Python
 venv/
 env/
+*.egg-info/
+.pytest_cache/
 
 # Node
 node_modules/
 build/
 dist/
 .DS_Store
+*.tsbuildinfo
 
-# Environment
+# Environment Variables
 .env.local
 .env.production
+.env.development
 
 # IDEs
 .vscode/
 .idea/
+*.swp
+*.swo
+*~
 
 # Uploads
 uploads/*.pdf
+uploads/*.json
+uploads/*.csv
 
 # Logs
 *.log
 logs/
+/var/log/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Coverage
+.coverage
+htmlcov/
+coverage.xml
+
+# Git
+.git/
+.gitattributes
