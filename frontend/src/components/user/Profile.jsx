@@ -1,11 +1,14 @@
 import React from 'react';
 import { useAuth } from '../../context/AuthContext';
-import { User, Mail, Shield, Calendar } from 'lucide-react';
+import { User, Mail, Shield, Calendar, HelpCircle, RotateCcw, ToggleLeft, ToggleRight } from 'lucide-react';
 import Layout from '../shared/Layout';
 import { formatDate } from '../../utils/helpers';
+import { useTutorial } from '../../context/TutorialContext';
+import { TUTORIAL_IDS } from '../../utils/tutorialSteps';
 
 const Profile = () => {
   const { user } = useAuth();
+  const { tutorialEnabled, toggleTutorials, resetAllTutorials, startTutorial, isTutorialCompleted } = useTutorial();
 
   if (!user) {
     return null;
