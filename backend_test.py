@@ -14,12 +14,12 @@ from datetime import datetime
 BASE_URL = "http://localhost:8001"
 API_BASE = "http://localhost:8001/api"
 
-# Test data
+# Test data - Use the default admin credentials from init_admin.py
 ADMIN_USER = {
-    "email": "admin@test.com",
+    "email": "admin@quizapp.com",
     "username": "admin",
-    "password": "admin123",
-    "full_name": "Admin User",
+    "password": "Admin@123",
+    "full_name": "System Administrator",
     "role": "admin"
 }
 
