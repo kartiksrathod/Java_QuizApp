@@ -1,12 +1,66 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
-import { Trophy, XCircle, CheckCircle2, Clock, RotateCw, Home } from 'lucide-react';
+import { Trophy, XCircle, CheckCircle2, Clock, RotateCw, Home, Bookmark, BookmarkCheck } from 'lucide-react';
 import Layout from '../shared/Layout';
+import { userAPI } from '../../services/api';
+import { showToast } from '../shared/Toast';
 
 const QuizResults = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { questions, answers, score, timeSpent } = location.state || {};
+  const [bookmarkedQuestions, setBookmarkedQuestions] = useState(new Set());
+  const [bookmarkLoading, setBookmarkLoading] = useState({});
+
+  useEffect(() => {
+    if (questions) {
+      // Check bookmark status for all questions
+      checkAllBookmarks();
+    }
+  }, [questions]);
+
+  const checkAllBookmarks = async () => {
+    try {
+      const bookmarkStatuses = await Promise.all(
+        questions.map(q => userAPI.checkBookmarkStatus(q.id))
+      );
+      const bookmarked = new Set(
+        questions
+          .filter((_, idx) => bookmarkStatuses[idx].data.is_bookmarked)
+          .map(q => q.id)
+      );
+      setBookmarkedQuestions(bookmarked);
+    } catch (error) {
+      console.error('Error checking bookmarks:', error);
+    }
+  };
+
+  const handleToggleBookmark = async (questionId) => {
+    const isBookmarked = bookmarkedQuestions.has(questionId);
+    
+    setBookmarkLoading(prev => ({ ...prev, [questionId]: true }));
+    
+    try {
+      if (isBookmarked) {
+        await userAPI.removeBookmark(questionId);
+        setBookmarkedQuestions(prev => {
+          const newSet = new Set(prev);
+          newSet.delete(questionId);
+          return newSet;
+        });
+        showToast('Bookmark removed', 'success');
+      } else {
+        await userAPI.addBookmark(questionId);
+        setBookmarkedQuestions(prev => new Set([...prev, questionId]));
+        showToast('Question bookmarked', 'success');
+      }
+    } catch (error) {
+      console.error('Error toggling bookmark:', error);
+      showToast(error.response?.data?.detail || 'Failed to update bookmark', 'error');
+    } finally {
+      setBookmarkLoading(prev => ({ ...prev, [questionId]: false }));
+    }
+  };
 
   if (!questions || !score) {
     navigate('/user/quiz');
