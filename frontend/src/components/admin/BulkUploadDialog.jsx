@@ -123,10 +123,10 @@ const BulkUploadDialog = ({ onClose, onSuccess }) => {
               <FileText className="w-4 h-4" />
               Download Sample Templates
             </h3>
-            <div className="flex gap-3">
+            <div className="flex flex-col xs:flex-row gap-2 sm:gap-3">
               <button
                 onClick={downloadSampleJSON}
-                className="flex items-center gap-2 px-4 py-2 bg-white border border-blue-300 text-blue-700 rounded-lg hover:bg-blue-50 transition-colors text-sm"
+                className="flex items-center justify-center gap-2 px-4 py-2.5 sm:py-2 bg-white border border-blue-300 text-blue-700 rounded-lg hover:bg-blue-50 transition-colors text-sm min-h-[44px] touch-manipulation"
                 data-testid="download-sample-json-button"
               >
                 <Download className="w-4 h-4" />
@@ -134,7 +134,7 @@ const BulkUploadDialog = ({ onClose, onSuccess }) => {
               </button>
               <button
                 onClick={downloadSampleCSV}
-                className="flex items-center gap-2 px-4 py-2 bg-white border border-blue-300 text-blue-700 rounded-lg hover:bg-blue-50 transition-colors text-sm"
+                className="flex items-center justify-center gap-2 px-4 py-2.5 sm:py-2 bg-white border border-blue-300 text-blue-700 rounded-lg hover:bg-blue-50 transition-colors text-sm min-h-[44px] touch-manipulation"
                 data-testid="download-sample-csv-button"
               >
                 <Download className="w-4 h-4" />
