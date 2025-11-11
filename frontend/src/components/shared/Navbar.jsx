@@ -44,9 +44,9 @@ const Navbar = () => {
         <div className="flex justify-between h-16">
           {/* Logo and brand */}
           <div className="flex items-center">
-            <Link to={isAdmin() ? '/admin/dashboard' : '/user/dashboard'} className="flex items-center">
-              <BookOpen className="w-8 h-8 text-blue-600" />
-              <span className="ml-2 text-xl font-bold text-gray-900">Java Quiz</span>
+            <Link to={isAdmin() ? '/admin/dashboard' : '/user/dashboard'} className="flex items-center gap-2">
+              <BookOpen className="w-6 h-6 xs:w-8 xs:h-8 text-blue-600" />
+              <span className="text-lg xs:text-xl font-bold text-gray-900">Java Quiz</span>
             </Link>
           </div>
 
