@@ -24,14 +24,14 @@ const Profile = () => {
         </div>
 
         {/* Profile Card */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-          <div className="flex items-center gap-6 mb-6 pb-6 border-b border-gray-200">
-            <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
-              <User className="w-10 h-10 text-blue-600" />
+        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6">
+          <div className="flex flex-col xs:flex-row items-center xs:items-start gap-4 xs:gap-6 mb-6 pb-6 border-b border-gray-200">
+            <div className="w-16 h-16 xs:w-20 xs:h-20 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+              <User className="w-8 h-8 xs:w-10 xs:h-10 text-blue-600" />
             </div>
-            <div>
-              <h2 className="text-2xl font-bold text-gray-900">{user.full_name || user.username}</h2>
-              <p className="text-gray-600">@{user.username}</p>
+            <div className="text-center xs:text-left">
+              <h2 className="text-xl xs:text-2xl font-bold text-gray-900">{user.full_name || user.username}</h2>
+              <p className="text-gray-600 text-sm xs:text-base">@{user.username}</p>
               {user.role === 'admin' && (
                 <span className="inline-block mt-2 px-3 py-1 bg-blue-600 text-white text-xs font-semibold rounded-full">
                   Admin
