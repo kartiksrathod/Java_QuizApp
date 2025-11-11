@@ -173,6 +173,23 @@ const QuizResults = () => {
                         )}
                       </div>
                     </div>
+                    <button
+                      onClick={() => handleToggleBookmark(question.id)}
+                      disabled={bookmarkLoading[question.id]}
+                      className={`flex-shrink-0 p-2 rounded-lg transition-colors ${
+                        bookmarkedQuestions.has(question.id)
+                          ? 'text-yellow-600 bg-yellow-50 hover:bg-yellow-100'
+                          : 'text-gray-400 hover:text-yellow-600 hover:bg-yellow-50'
+                      } disabled:opacity-50`}
+                      title={bookmarkedQuestions.has(question.id) ? 'Remove bookmark' : 'Bookmark question'}
+                      data-testid="bookmark-question-button"
+                    >
+                      {bookmarkedQuestions.has(question.id) ? (
+                        <BookmarkCheck className="w-5 h-5" />
+                      ) : (
+                        <Bookmark className="w-5 h-5" />
+                      )}
+                    </button>
                   </div>
                 </div>
               );
