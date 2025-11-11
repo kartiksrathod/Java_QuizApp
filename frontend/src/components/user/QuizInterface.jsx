@@ -62,6 +62,15 @@ const QuizInterface = () => {
       setQuestions(response.data);
       setTimeRemaining(response.data.length * 60); // 1 minute per question
       setQuizStarted(true);
+      
+      // Auto-start tutorial on first quiz
+      const hasSeenQuizInterface = localStorage.getItem('hasSeenQuizInterface');
+      if (!hasSeenQuizInterface && tutorialEnabled && !isTutorialCompleted(TUTORIAL_IDS.QUIZ_INTERFACE)) {
+        setTimeout(() => {
+          startTutorial(TUTORIAL_IDS.QUIZ_INTERFACE);
+          localStorage.setItem('hasSeenQuizInterface', 'true');
+        }, 1500);
+      }
     } catch (error) {
       console.error('Error fetching questions:', error);
       showToast('Failed to load quiz questions', 'error');
