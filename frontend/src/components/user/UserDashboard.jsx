@@ -68,7 +68,10 @@ const UserDashboard = () => {
       <div className="space-y-6" data-testid="user-dashboard">
         {/* Header */}
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-900">Welcome to Java Quiz</h1>
+          <div className="flex items-center justify-center gap-4 mb-2">
+            <h1 className="text-4xl font-bold text-gray-900">Welcome to Java Quiz</h1>
+            <TutorialButton tutorialId={TUTORIAL_IDS.USER_DASHBOARD} />
+          </div>
           <p className="text-gray-600 mt-2">Test your Java knowledge and improve your skills</p>
         </div>
 
