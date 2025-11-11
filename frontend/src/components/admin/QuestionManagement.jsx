@@ -248,85 +248,91 @@ const QuestionManagement = () => {
 
         {/* Questions Table */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-          <div className="overflow-x-auto">
-            <table className="w-full" data-testid="questions-table">
-              <thead className="bg-gray-50 border-b border-gray-200">
-                <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Question
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Category
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Difficulty
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Answer
-                  </th>
-                  <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Actions
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-200">
-                {filteredQuestions.length > 0 ? (
-                  filteredQuestions.map((question) => (
-                    <tr key={question.id} className="hover:bg-gray-50 transition-colors" data-testid="question-row">
-                      <td className="px-6 py-4">
-                        <p className="text-sm font-medium text-gray-900 line-clamp-2">
-                          {question.question}
-                        </p>
-                        <p className="text-xs text-gray-500 mt-1">by {question.created_by}</p>
-                      </td>
-                      <td className="px-6 py-4">
-                        <span className="px-2 py-1 text-xs font-medium bg-blue-100 text-blue-700 rounded">
-                          {question.category}
-                        </span>
-                      </td>
-                      <td className="px-6 py-4">
-                        <span
-                          className={`px-2 py-1 text-xs font-medium rounded ${
-                            question.difficulty === 'easy'
-                              ? 'bg-green-100 text-green-700'
-                              : question.difficulty === 'medium'
-                              ? 'bg-yellow-100 text-yellow-700'
-                              : 'bg-red-100 text-red-700'
-                          }`}
-                        >
-                          {question.difficulty}
-                        </span>
-                      </td>
-                      <td className="px-6 py-4 text-sm text-gray-900">{question.answer}</td>
-                      <td className="px-6 py-4 text-right space-x-2">
-                        <button
-                          onClick={() => handleEditQuestion(question)}
-                          className="inline-flex items-center p-1.5 text-blue-600 hover:bg-blue-50 rounded transition-colors"
-                          title="Edit"
-                          data-testid="edit-question-button"
-                        >
-                          <Edit className="w-4 h-4" />
-                        </button>
-                        <button
-                          onClick={() => handleDeleteQuestion(question.id)}
-                          className="inline-flex items-center p-1.5 text-red-600 hover:bg-red-50 rounded transition-colors"
-                          title="Delete"
-                          data-testid="delete-question-button"
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </button>
+          <div className="overflow-x-auto -mx-4 sm:mx-0">
+            <div className="inline-block min-w-full align-middle">
+              <table className="min-w-full divide-y divide-gray-200" data-testid="questions-table">
+                <thead className="bg-gray-50">
+                  <tr>
+                    <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap">
+                      Question
+                    </th>
+                    <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap">
+                      Category
+                    </th>
+                    <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap">
+                      Difficulty
+                    </th>
+                    <th className="hidden md:table-cell px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap">
+                      Answer
+                    </th>
+                    <th className="px-3 sm:px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap">
+                      Actions
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="bg-white divide-y divide-gray-200">
+                  {filteredQuestions.length > 0 ? (
+                    filteredQuestions.map((question) => (
+                      <tr key={question.id} className="hover:bg-gray-50 transition-colors" data-testid="question-row">
+                        <td className="px-3 sm:px-6 py-4 max-w-xs">
+                          <p className="text-sm font-medium text-gray-900 line-clamp-2">
+                            {question.question}
+                          </p>
+                          <p className="text-xs text-gray-500 mt-1">by {question.created_by}</p>
+                        </td>
+                        <td className="px-3 sm:px-6 py-4 whitespace-nowrap">
+                          <span className="px-2 py-1 text-xs font-medium bg-blue-100 text-blue-700 rounded">
+                            {question.category}
+                          </span>
+                        </td>
+                        <td className="px-3 sm:px-6 py-4 whitespace-nowrap">
+                          <span
+                            className={`px-2 py-1 text-xs font-medium rounded ${
+                              question.difficulty === 'easy'
+                                ? 'bg-green-100 text-green-700'
+                                : question.difficulty === 'medium'
+                                ? 'bg-yellow-100 text-yellow-700'
+                                : 'bg-red-100 text-red-700'
+                            }`}
+                          >
+                            {question.difficulty}
+                          </span>
+                        </td>
+                        <td className="hidden md:table-cell px-3 sm:px-6 py-4 text-sm text-gray-900 max-w-xs truncate">
+                          {question.answer}
+                        </td>
+                        <td className="px-3 sm:px-6 py-4 text-right whitespace-nowrap">
+                          <div className="flex items-center justify-end gap-1 sm:gap-2">
+                            <button
+                              onClick={() => handleEditQuestion(question)}
+                              className="inline-flex items-center p-2 sm:p-1.5 text-blue-600 hover:bg-blue-50 rounded transition-colors min-h-[44px] sm:min-h-0"
+                              title="Edit"
+                              data-testid="edit-question-button"
+                            >
+                              <Edit className="w-5 h-5 sm:w-4 sm:h-4" />
+                            </button>
+                            <button
+                              onClick={() => handleDeleteQuestion(question.id)}
+                              className="inline-flex items-center p-2 sm:p-1.5 text-red-600 hover:bg-red-50 rounded transition-colors min-h-[44px] sm:min-h-0"
+                              title="Delete"
+                              data-testid="delete-question-button"
+                            >
+                              <Trash2 className="w-5 h-5 sm:w-4 sm:h-4" />
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan="5" className="px-6 py-12 text-center text-gray-500">
+                        No questions found. Try adjusting your filters or add new questions.
                       </td>
                     </tr>
-                  ))
-                ) : (
-                  <tr>
-                    <td colSpan="5" className="px-6 py-12 text-center text-gray-500">
-                      No questions found. Try adjusting your filters or add new questions.
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
+                  )}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
