@@ -5,8 +5,8 @@ import uuid
 import random
 
 from auth import get_current_user
-from models import QuestionResponse, UserInDB
-from database import questions_collection, quizzes_collection, results_collection
+from models import QuestionResponse, UserInDB, BookmarkCreate, BookmarkResponse
+from database import questions_collection, quizzes_collection, results_collection, bookmarks_collection
 
 router = APIRouter(prefix="/user", tags=["User"])
 
