@@ -160,27 +160,30 @@ const QuestionManagement = () => {
           <div className="flex flex-wrap gap-2">
             <button
               onClick={() => setShowAddForm(true)}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2.5 sm:py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors min-h-[44px] touch-manipulation text-sm sm:text-base"
               data-testid="add-question-button"
             >
               <Plus className="w-4 h-4" />
-              Add Question
+              <span className="hidden xs:inline">Add Question</span>
+              <span className="xs:hidden">Add</span>
             </button>
             <button
               onClick={() => setShowBulkUpload(true)}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2.5 sm:py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors min-h-[44px] touch-manipulation text-sm sm:text-base"
               data-testid="bulk-upload-button"
             >
               <Upload className="w-4 h-4" />
-              Bulk Upload
+              <span className="hidden xs:inline">Bulk Upload</span>
+              <span className="xs:hidden">Upload</span>
             </button>
             <button
               onClick={() => setShowPDFGenerator(true)}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2.5 sm:py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors min-h-[44px] touch-manipulation text-sm sm:text-base"
               data-testid="export-pdf-button"
             >
               <Download className="w-4 h-4" />
-              Export PDF
+              <span className="hidden xs:inline">Export PDF</span>
+              <span className="xs:hidden">PDF</span>
             </button>
           </div>
         </div>
