@@ -100,24 +100,24 @@ const QuizResults = () => {
         </div>
 
         {/* Score Card */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">Your Score</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="text-center p-4 bg-blue-50 rounded-lg">
-              <p className="text-4xl font-bold text-blue-600">{score.percentage}%</p>
-              <p className="text-sm text-gray-600 mt-1">Score</p>
+        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6">
+          <h2 className="text-lg xs:text-xl font-bold text-gray-900 mb-4">Your Score</h2>
+          <div className="grid grid-cols-1 xs:grid-cols-3 gap-4 sm:gap-6">
+            <div className="text-center p-3 xs:p-4 bg-blue-50 rounded-lg">
+              <p className="text-3xl xs:text-4xl font-bold text-blue-600">{score.percentage}%</p>
+              <p className="text-xs xs:text-sm text-gray-600 mt-1">Score</p>
             </div>
-            <div className="text-center p-4 bg-green-50 rounded-lg">
-              <p className="text-4xl font-bold text-green-600">
+            <div className="text-center p-3 xs:p-4 bg-green-50 rounded-lg">
+              <p className="text-3xl xs:text-4xl font-bold text-green-600">
                 {score.correct}/{score.total}
               </p>
-              <p className="text-sm text-gray-600 mt-1">Correct Answers</p>
+              <p className="text-xs xs:text-sm text-gray-600 mt-1">Correct Answers</p>
             </div>
-            <div className="text-center p-4 bg-purple-50 rounded-lg">
-              <p className="text-4xl font-bold text-purple-600">
+            <div className="text-center p-3 xs:p-4 bg-purple-50 rounded-lg">
+              <p className="text-3xl xs:text-4xl font-bold text-purple-600">
                 {timeSpentMinutes}:{timeSpentSeconds.toString().padStart(2, '0')}
               </p>
-              <p className="text-sm text-gray-600 mt-1">Time Spent</p>
+              <p className="text-xs xs:text-sm text-gray-600 mt-1">Time Spent</p>
             </div>
           </div>
         </div>
