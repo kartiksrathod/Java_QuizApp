@@ -198,29 +198,29 @@ const QuizResults = () => {
         </div>
 
         {/* Action Buttons */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
           <Link
             to="/user/quiz"
-            className="flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+            className="flex items-center justify-center gap-2 px-4 xs:px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors text-sm xs:text-base"
             data-testid="take-another-quiz-button"
           >
-            <RotateCw className="w-5 h-5" />
-            Take Another Quiz
+            <RotateCw className="w-4 h-4 xs:w-5 xs:h-5" />
+            <span className="xs:inline">Take Another Quiz</span>
           </Link>
           <Link
             to="/user/bookmarks"
-            className="flex items-center justify-center gap-2 px-6 py-3 bg-yellow-500 text-white font-semibold rounded-lg hover:bg-yellow-600 transition-colors"
+            className="flex items-center justify-center gap-2 px-4 xs:px-6 py-3 bg-yellow-500 text-white font-semibold rounded-lg hover:bg-yellow-600 transition-colors text-sm xs:text-base"
             data-testid="view-bookmarks-button"
           >
-            <BookmarkCheck className="w-5 h-5" />
-            View Bookmarks
+            <BookmarkCheck className="w-4 h-4 xs:w-5 xs:h-5" />
+            <span className="xs:inline">View Bookmarks</span>
           </Link>
           <Link
             to="/user/dashboard"
-            className="flex items-center justify-center gap-2 px-6 py-3 border border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition-colors"
+            className="flex items-center justify-center gap-2 px-4 xs:px-6 py-3 border border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition-colors text-sm xs:text-base xs:col-span-2 sm:col-span-1"
           >
-            <Home className="w-5 h-5" />
-            Back to Dashboard
+            <Home className="w-4 h-4 xs:w-5 xs:h-5" />
+            <span className="xs:inline">Back to Dashboard</span>
           </Link>
         </div>
       </div>
