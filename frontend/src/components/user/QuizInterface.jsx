@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { Clock, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { Clock, AlertCircle, CheckCircle2, Bookmark, BookmarkCheck } from 'lucide-react';
 import { userAPI } from '../../services/api';
 import LoadingSpinner from '../shared/LoadingSpinner';
 import { showToast } from '../shared/Toast';
@@ -18,6 +18,8 @@ const QuizInterface = () => {
   const [loading, setLoading] = useState(true);
   const [quizStarted, setQuizStarted] = useState(false);
   const [quizCompleted, setQuizCompleted] = useState(false);
+  const [bookmarkedQuestions, setBookmarkedQuestions] = useState(new Set());
+  const [bookmarkLoading, setBookmarkLoading] = useState({});
   const { startTutorial, isTutorialCompleted, tutorialEnabled } = useTutorial();
 
   useEffect(() => {
