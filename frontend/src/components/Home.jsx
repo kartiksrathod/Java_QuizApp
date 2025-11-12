@@ -158,40 +158,40 @@ const Home = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 to-purple-600">
+      <section className="py-20 bg-gradient-to-br from-blue-900/30 to-purple-900/30 border-y border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl font-bold text-white mb-6">
                 Why Choose QuizAI Platform?
               </h2>
-              <p className="text-blue-100 text-lg mb-8">
+              <p className="text-gray-400 text-lg mb-8">
                 Join thousands of learners who are already improving their knowledge and skills with our comprehensive quiz platform.
               </p>
               <div className="space-y-4">
                 {benefits.map((benefit, index) => (
                   <div key={index} className="flex items-center gap-3">
-                    <CheckCircle className="w-6 h-6 text-green-300 flex-shrink-0" />
-                    <span className="text-white text-lg">{benefit}</span>
+                    <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0" />
+                    <span className="text-gray-200 text-lg">{benefit}</span>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20">
+            <div className="bg-gray-800/50 backdrop-blur-lg rounded-2xl p-8 border border-gray-700">
               <div className="space-y-6">
                 <div className="text-center">
                   <div className="text-5xl font-bold text-white mb-2">10,000+</div>
-                  <div className="text-blue-100">Questions Available</div>
+                  <div className="text-gray-400">Questions Available</div>
                 </div>
-                <div className="h-px bg-white/20"></div>
+                <div className="h-px bg-gray-700"></div>
                 <div className="text-center">
                   <div className="text-5xl font-bold text-white mb-2">5,000+</div>
-                  <div className="text-blue-100">Active Users</div>
+                  <div className="text-gray-400">Active Users</div>
                 </div>
-                <div className="h-px bg-white/20"></div>
+                <div className="h-px bg-gray-700"></div>
                 <div className="text-center">
                   <div className="text-5xl font-bold text-white mb-2">98%</div>
-                  <div className="text-blue-100">Satisfaction Rate</div>
+                  <div className="text-gray-400">Satisfaction Rate</div>
                 </div>
               </div>
             </div>
