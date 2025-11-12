@@ -2,12 +2,12 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import os
 
-from routes import auth_routes, admin_routes, user_routes
+from routes import auth_routes, admin_routes, user_routes, ai_routes
 
 app = FastAPI(
     title="Java Quiz App API",
-    description="Backend API for Java Quiz Application with Question Management",
-    version="1.0.0"
+    description="Backend API for Java Quiz Application with Question Management and AI Features",
+    version="2.0.0"
 )
 
 # CORS configuration
@@ -23,6 +23,7 @@ app.add_middleware(
 app.include_router(auth_routes.router, prefix="/api")
 app.include_router(admin_routes.router, prefix="/api")
 app.include_router(user_routes.router, prefix="/api")
+app.include_router(ai_routes.router, prefix="/api")
 
 @app.get("/")
 async def root():
