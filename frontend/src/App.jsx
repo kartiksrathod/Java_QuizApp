@@ -7,6 +7,9 @@ import ProtectedRoute from './components/shared/ProtectedRoute';
 import TutorialOverlay from './components/shared/Tutorial/TutorialOverlay';
 import './App.css';
 
+// Public Components
+import Home from './components/Home';
+
 // Auth Components
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
