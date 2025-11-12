@@ -109,7 +109,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-gray-200 bg-white" data-testid="mobile-menu">
+        <div className="md:hidden border-t border-gray-200 bg-white z-50" data-testid="mobile-menu">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {links.map((link) => {
               const Icon = link.icon;
