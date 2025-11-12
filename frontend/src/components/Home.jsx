@@ -200,17 +200,17 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-900">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl font-bold text-white mb-6">
             Ready to Start Your Learning Journey?
           </h2>
-          <p className="text-xl text-gray-600 mb-8">
+          <p className="text-xl text-gray-400 mb-8">
             Join our community today and unlock your full potential with AI-powered quizzes
           </p>
           <button
             onClick={() => navigate('/register')}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-lg font-semibold text-lg inline-flex items-center gap-2 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-lg font-semibold text-lg inline-flex items-center gap-2 transition-all shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 transform hover:-translate-y-0.5"
             data-testid="cta-register-btn"
           >
             Create Free Account
@@ -220,7 +220,7 @@ const Home = () => {
             Already have an account?{' '}
             <button
               onClick={() => navigate('/login')}
-              className="text-blue-600 hover:text-blue-700 font-semibold"
+              className="text-blue-400 hover:text-blue-300 font-semibold"
               data-testid="cta-login-link"
             >
               Login here
