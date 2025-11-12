@@ -39,14 +39,14 @@ const Navbar = () => {
   const links = isAdmin() ? adminLinks : userLinks;
 
   return (
-    <nav className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <nav className="bg-gray-900 border-b border-gray-800 sticky top-0 z-50 shadow-xl backdrop-blur-lg bg-opacity-95">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           {/* Logo and brand */}
           <div className="flex items-center">
             <Link to={isAdmin() ? '/admin/dashboard' : '/user/dashboard'} className="flex items-center gap-2">
-              <BookOpen className="w-6 h-6 xs:w-8 xs:h-8 text-blue-600" />
-              <span className="text-lg xs:text-xl font-bold text-gray-900">Java Quiz</span>
+              <BookOpen className="w-6 h-6 xs:w-8 xs:h-8 text-blue-500" />
+              <span className="text-lg xs:text-xl font-bold text-white">QuizAI</span>
             </Link>
           </div>
 
@@ -62,8 +62,8 @@ const Navbar = () => {
                   className={cn(
                     'px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2',
                     isActive
-                      ? 'bg-blue-50 text-blue-700'
-                      : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                      ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/20'
+                      : 'text-gray-300 hover:bg-gray-800 hover:text-white'
                   )}
                 >
                   <Icon className="w-4 h-4" />
@@ -75,9 +75,9 @@ const Navbar = () => {
 
           {/* User menu */}
           <div className="hidden md:flex md:items-center md:space-x-4">
-            <div className="flex items-center gap-2 px-3 py-1.5 bg-gray-100 rounded-lg">
-              <User className="w-4 h-4 text-gray-600" />
-              <span className="text-sm font-medium text-gray-700">{user?.username}</span>
+            <div className="flex items-center gap-2 px-3 py-1.5 bg-gray-800 rounded-lg border border-gray-700">
+              <User className="w-4 h-4 text-gray-400" />
+              <span className="text-sm font-medium text-gray-200">{user?.username}</span>
               {isAdmin() && (
                 <span className="ml-2 px-2 py-0.5 bg-blue-600 text-white text-xs rounded-full">
                   Admin
@@ -86,7 +86,7 @@ const Navbar = () => {
             </div>
             <button
               onClick={handleLogout}
-              className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+              className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-red-400 hover:bg-red-500/10 rounded-lg transition-colors border border-red-500/20"
             >
               <LogOut className="w-4 h-4" />
               Logout
@@ -97,7 +97,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-gray-600 hover:bg-gray-100 min-h-[44px] min-w-[44px] flex items-center justify-center touch-manipulation"
+              className="p-2 rounded-lg text-gray-300 hover:bg-gray-800 min-h-[44px] min-w-[44px] flex items-center justify-center touch-manipulation"
               aria-label="Toggle menu"
               data-testid="mobile-menu-button"
             >
@@ -109,7 +109,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-gray-200 bg-white z-50" data-testid="mobile-menu">
+        <div className="md:hidden border-t border-gray-800 bg-gray-900 z-50" data-testid="mobile-menu">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {links.map((link) => {
               const Icon = link.icon;
@@ -122,8 +122,8 @@ const Navbar = () => {
                   className={cn(
                     'flex items-center gap-3 px-3 py-3 rounded-lg text-base font-medium transition-colors min-h-[48px] touch-manipulation',
                     isActive
-                      ? 'bg-blue-50 text-blue-700'
-                      : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                      ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/20'
+                      : 'text-gray-300 hover:bg-gray-800 hover:text-white'
                   )}
                   data-testid={`mobile-nav-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
                 >
@@ -132,9 +132,9 @@ const Navbar = () => {
                 </Link>
               );
             })}
-            <div className="border-t border-gray-200 pt-2 mt-2">
-              <div className="px-3 py-2 text-sm text-gray-500">
-                Logged in as <span className="font-medium text-gray-900">{user?.username}</span>
+            <div className="border-t border-gray-800 pt-2 mt-2">
+              <div className="px-3 py-2 text-sm text-gray-400">
+                Logged in as <span className="font-medium text-gray-200">{user?.username}</span>
                 {isAdmin() && (
                   <span className="ml-2 px-2 py-0.5 bg-blue-600 text-white text-xs rounded-full">
                     Admin
@@ -146,7 +146,7 @@ const Navbar = () => {
                   handleLogout();
                   setMobileMenuOpen(false);
                 }}
-                className="w-full flex items-center gap-3 px-3 py-2 text-base font-medium text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                className="w-full flex items-center gap-3 px-3 py-2 text-base font-medium text-red-400 hover:bg-red-500/10 rounded-lg transition-colors border border-red-500/20"
               >
                 <LogOut className="w-5 h-5" />
                 Logout
