@@ -105,7 +105,8 @@ const TutorialOverlay = () => {
       {/* Tooltip */}
       <div
         ref={tooltipRef}
-        className="fixed z-[1001] bg-white rounded-lg shadow-2xl p-6 max-w-md animate-fadeIn pointer-events-auto"
+        className="fixed z-[1000] bg-white rounded-lg shadow-2xl p-6 max-w-md animate-fadeIn"
+        style={{ pointerEvents: 'auto' }}
         style={{
           top: `${tooltipPosition.top}px`,
           left: `${tooltipPosition.left}px`,
