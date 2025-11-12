@@ -230,14 +230,14 @@ const Home = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-gray-950 border-t border-gray-800 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-2 mb-4 md:mb-0">
-              <Brain className="w-8 h-8 text-blue-400" />
+              <Brain className="w-8 h-8 text-blue-500" />
               <span className="text-2xl font-bold">QuizAI</span>
             </div>
-            <div className="text-gray-400">
+            <div className="text-gray-500">
               © 2025 QuizAI Platform. All rights reserved.
             </div>
           </div>
