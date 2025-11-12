@@ -106,8 +106,8 @@ const TutorialOverlay = () => {
       <div
         ref={tooltipRef}
         className="fixed z-[1000] bg-white rounded-lg shadow-2xl p-6 max-w-md animate-fadeIn"
-        style={{ pointerEvents: 'auto' }}
         style={{
+          pointerEvents: 'auto',
           top: `${tooltipPosition.top}px`,
           left: `${tooltipPosition.left}px`,
           transform: step.placement === 'center' ? 'translate(-50%, -50%)' : 
@@ -116,6 +116,7 @@ const TutorialOverlay = () => {
                      step.placement === 'left' ? 'translate(-100%, -50%)' :
                      'translate(0, -50%)',
         }}
+        data-testid="tutorial-tooltip"
       >
         {/* Close Button */}
         <button
