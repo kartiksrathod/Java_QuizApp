@@ -83,19 +83,19 @@ const Home = () => {
       <section className="pt-20 pb-32 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            <h1 className="text-5xl sm:text-6xl font-bold text-white mb-6 leading-tight">
               Master Knowledge with
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 {" "}AI-Powered Quizzes
               </span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+            <p className="text-xl text-gray-400 mb-8 leading-relaxed">
               Challenge yourself with intelligent quizzes, track your progress, and achieve mastery in your favorite subjects. Built for learners, educators, and knowledge enthusiasts.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button
                 onClick={() => navigate('/register')}
-                className="group bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center gap-2 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                className="group bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center gap-2 transition-all shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 transform hover:-translate-y-0.5"
                 data-testid="hero-get-started-btn"
               >
                 Get Started Free
@@ -103,19 +103,19 @@ const Home = () => {
               </button>
               <button
                 onClick={() => navigate('/login')}
-                className="bg-white hover:bg-gray-50 text-gray-800 px-8 py-4 rounded-lg font-semibold text-lg border-2 border-gray-200 transition-all"
+                className="bg-gray-800 hover:bg-gray-700 text-gray-100 px-8 py-4 rounded-lg font-semibold text-lg border-2 border-gray-700 transition-all"
                 data-testid="hero-login-btn"
               >
                 Login to Account
               </button>
             </div>
-            <div className="mt-8 flex items-center justify-center gap-6 text-sm text-gray-600">
+            <div className="mt-8 flex items-center justify-center gap-6 text-sm text-gray-500">
               <div className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5 text-green-500" />
+                <CheckCircle className="w-5 h-5 text-green-400" />
                 <span>No credit card required</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5 text-green-500" />
+                <CheckCircle className="w-5 h-5 text-green-400" />
                 <span>Free forever</span>
               </div>
             </div>
