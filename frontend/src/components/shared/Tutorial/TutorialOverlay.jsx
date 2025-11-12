@@ -82,7 +82,7 @@ const TutorialOverlay = () => {
     <>
       {/* Overlay - non-interactive background */}
       <div 
-        className="fixed inset-0 bg-black bg-opacity-50 z-[999] transition-opacity duration-300" 
+        className="fixed inset-0 bg-black bg-opacity-50 z-[998] transition-opacity duration-300" 
         data-testid="tutorial-overlay-backdrop"
         style={{ pointerEvents: 'none' }}
       />
@@ -90,7 +90,7 @@ const TutorialOverlay = () => {
       {/* Highlight Spotlight */}
       {targetElement && step.placement !== 'center' && (
         <div
-          className="fixed z-[1000] pointer-events-none transition-all duration-300"
+          className="fixed z-[999] pointer-events-none transition-all duration-300"
           style={{
             top: `${targetElement.getBoundingClientRect().top - 4}px`,
             left: `${targetElement.getBoundingClientRect().left - 4}px`,
