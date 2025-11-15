@@ -94,13 +94,13 @@ const EditQuestionForm = ({ question, onClose, onSuccess }) => {
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-2 sm:p-4 z-50 overflow-y-auto">
-      <div className="bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-y-auto my-2 sm:my-8" data-testid="edit-question-dialog">
+      <div className="bg-white dark:bg-[#111111] rounded-xl shadow-2xl max-w-2xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-y-auto my-2 sm:my-8" data-testid="edit-question-dialog">
         {/* Header */}
-        <div className="sticky top-0 bg-white border-b border-gray-200 px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between z-10">
-          <h2 className="text-lg sm:text-xl font-bold text-gray-900">Edit Question</h2>
+        <div className="sticky top-0 bg-white dark:bg-[#111111] border-b border-gray-200 dark:border-gray-800 px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between z-10">
+          <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">Edit Question</h2>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-gray-100 rounded-lg transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center touch-manipulation"
+            className="p-2 hover:bg-gray-100 dark:bg-[#1a1a1a] rounded-lg transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center touch-manipulation"
             aria-label="Close dialog"
           >
             <X className="w-5 h-5" />
@@ -111,7 +111,7 @@ const EditQuestionForm = ({ question, onClose, onSuccess }) => {
         <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-4">
           {/* Question */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               Question <span className="text-red-500">*</span>
             </label>
             <textarea
@@ -119,7 +119,7 @@ const EditQuestionForm = ({ question, onClose, onSuccess }) => {
               value={formData.question}
               onChange={handleChange}
               rows={3}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               placeholder="Enter the question"
             />
             {errors.question && <p className="mt-1 text-xs text-red-600">{errors.question}</p>}
@@ -127,7 +127,7 @@ const EditQuestionForm = ({ question, onClose, onSuccess }) => {
 
           {/* Options */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Options <span className="text-red-500">*</span>
             </label>
             <div className="space-y-2">
@@ -137,7 +137,7 @@ const EditQuestionForm = ({ question, onClose, onSuccess }) => {
                     type="text"
                     value={option}
                     onChange={(e) => handleOptionChange(index, e.target.value)}
-                    className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder={`Option ${index + 1}`}
                   />
                   {formData.options.length > 2 && (
@@ -165,7 +165,7 @@ const EditQuestionForm = ({ question, onClose, onSuccess }) => {
 
           {/* Answer */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               Correct Answer <span className="text-red-500">*</span>
             </label>
             <input
@@ -173,7 +173,7 @@ const EditQuestionForm = ({ question, onClose, onSuccess }) => {
               name="answer"
               value={formData.answer}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               placeholder="Enter the correct answer (must match one of the options)"
             />
             {errors.answer && <p className="mt-1 text-xs text-red-600">{errors.answer}</p>}
@@ -182,7 +182,7 @@ const EditQuestionForm = ({ question, onClose, onSuccess }) => {
           {/* Category and Difficulty */}
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Category <span className="text-red-500">*</span>
               </label>
               <input
@@ -190,21 +190,21 @@ const EditQuestionForm = ({ question, onClose, onSuccess }) => {
                 name="category"
                 value={formData.category}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder="e.g., OOP Concepts"
               />
               {errors.category && <p className="mt-1 text-xs text-red-600">{errors.category}</p>}
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Difficulty <span className="text-red-500">*</span>
               </label>
               <select
                 name="difficulty"
                 value={formData.difficulty}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               >
                 <option value="easy">Easy</option>
                 <option value="medium">Medium</option>
@@ -215,7 +215,7 @@ const EditQuestionForm = ({ question, onClose, onSuccess }) => {
 
           {/* Explanation */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               Explanation (Optional)
             </label>
             <textarea
@@ -223,7 +223,7 @@ const EditQuestionForm = ({ question, onClose, onSuccess }) => {
               value={formData.explanation}
               onChange={handleChange}
               rows={2}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               placeholder="Provide an explanation for the answer"
             />
           </div>
@@ -233,7 +233,7 @@ const EditQuestionForm = ({ question, onClose, onSuccess }) => {
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 px-4 py-3 sm:py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors min-h-[44px] touch-manipulation font-medium"
+              className="flex-1 px-4 py-3 sm:py-2 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:bg-[#0a0a0a] transition-colors min-h-[44px] touch-manipulation font-medium"
             >
               Cancel
             </button>

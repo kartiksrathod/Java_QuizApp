@@ -102,13 +102,13 @@ const BulkUploadDialog = ({ onClose, onSuccess }) => {
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-2 sm:p-4 z-50 overflow-y-auto">
-      <div className="bg-white dark:bg-[#111111] rounded-xl shadow-2xl max-w-2xl w-full my-2 sm:my-8 max-h-[95vh] sm:max-h-[90vh] overflow-y-auto" data-testid="bulk-upload-dialog">
+      <div className="bg-white rounded-xl shadow-2xl max-w-2xl w-full my-2 sm:my-8 max-h-[95vh] sm:max-h-[90vh] overflow-y-auto" data-testid="bulk-upload-dialog">
         {/* Header */}
-        <div className="border-b border-gray-200 dark:border-gray-800 px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between sticky top-0 bg-white dark:bg-[#111111] z-10">
-          <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">Bulk Upload Questions</h2>
+        <div className="border-b border-gray-200 px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between sticky top-0 bg-white z-10">
+          <h2 className="text-lg sm:text-xl font-bold text-gray-900">Bulk Upload Questions</h2>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-gray-100 dark:bg-[#1a1a1a] rounded-lg transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center touch-manipulation"
+            className="p-2 hover:bg-gray-100 rounded-lg transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center touch-manipulation"
             aria-label="Close dialog"
           >
             <X className="w-5 h-5" />
@@ -126,7 +126,7 @@ const BulkUploadDialog = ({ onClose, onSuccess }) => {
             <div className="flex flex-col xs:flex-row gap-2 sm:gap-3">
               <button
                 onClick={downloadSampleJSON}
-                className="flex items-center justify-center gap-2 px-4 py-2.5 sm:py-2 bg-white dark:bg-[#111111] border border-blue-300 text-blue-700 rounded-lg hover:bg-blue-50 transition-colors text-sm min-h-[44px] touch-manipulation"
+                className="flex items-center justify-center gap-2 px-4 py-2.5 sm:py-2 bg-white border border-blue-300 text-blue-700 rounded-lg hover:bg-blue-50 transition-colors text-sm min-h-[44px] touch-manipulation"
                 data-testid="download-sample-json-button"
               >
                 <Download className="w-4 h-4" />
@@ -134,7 +134,7 @@ const BulkUploadDialog = ({ onClose, onSuccess }) => {
               </button>
               <button
                 onClick={downloadSampleCSV}
-                className="flex items-center justify-center gap-2 px-4 py-2.5 sm:py-2 bg-white dark:bg-[#111111] border border-blue-300 text-blue-700 rounded-lg hover:bg-blue-50 transition-colors text-sm min-h-[44px] touch-manipulation"
+                className="flex items-center justify-center gap-2 px-4 py-2.5 sm:py-2 bg-white border border-blue-300 text-blue-700 rounded-lg hover:bg-blue-50 transition-colors text-sm min-h-[44px] touch-manipulation"
                 data-testid="download-sample-csv-button"
               >
                 <Download className="w-4 h-4" />
@@ -145,10 +145,10 @@ const BulkUploadDialog = ({ onClose, onSuccess }) => {
 
           {/* File upload */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Upload File (JSON or CSV)
             </label>
-            <div className="border-2 border-dashed border-gray-300 dark:border-gray-700 rounded-lg p-8 text-center hover:border-blue-500 transition-colors">
+            <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-blue-500 transition-colors">
               <Upload className="w-12 h-12 text-gray-400 mx-auto mb-4" />
               <input
                 type="file"
@@ -165,7 +165,7 @@ const BulkUploadDialog = ({ onClose, onSuccess }) => {
                 Choose File
               </label>
               {file && (
-                <p className="mt-3 text-sm text-gray-600 dark:text-gray-400">
+                <p className="mt-3 text-sm text-gray-600">
                   Selected: <span className="font-medium">{file.name}</span>
                 </p>
               )}
@@ -174,20 +174,20 @@ const BulkUploadDialog = ({ onClose, onSuccess }) => {
 
           {/* Upload result */}
           {uploadResult && (
-            <div className="bg-gray-50 dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 rounded-lg p-4 space-y-3">
-              <h4 className="text-sm font-semibold text-gray-900 dark:text-white">Upload Results</h4>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 space-y-3">
+              <h4 className="text-sm font-semibold text-gray-900">Upload Results</h4>
               <div className="grid grid-cols-3 gap-4 text-center">
                 <div>
                   <p className="text-2xl font-bold text-green-600">{uploadResult.success}</p>
-                  <p className="text-xs text-gray-600 dark:text-gray-400">Successful</p>
+                  <p className="text-xs text-gray-600">Successful</p>
                 </div>
                 <div>
                   <p className="text-2xl font-bold text-red-600">{uploadResult.failed}</p>
-                  <p className="text-xs text-gray-600 dark:text-gray-400">Failed</p>
+                  <p className="text-xs text-gray-600">Failed</p>
                 </div>
                 <div>
                   <p className="text-2xl font-bold text-blue-600">{uploadResult.total}</p>
-                  <p className="text-xs text-gray-600 dark:text-gray-400">Total</p>
+                  <p className="text-xs text-gray-600">Total</p>
                 </div>
               </div>
               {uploadResult.errors && uploadResult.errors.length > 0 && (
@@ -209,9 +209,9 @@ const BulkUploadDialog = ({ onClose, onSuccess }) => {
           )}
 
           {/* Format info */}
-          <div className="bg-gray-50 dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 rounded-lg p-4">
-            <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-2">File Format Requirements</h4>
-            <ul className="text-xs text-gray-600 dark:text-gray-400 space-y-1">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+            <h4 className="text-sm font-semibold text-gray-900 mb-2">File Format Requirements</h4>
+            <ul className="text-xs text-gray-600 space-y-1">
               <li>• <strong>question</strong>: Text of the question (required)</li>
               <li>• <strong>options</strong>: Array of answer options (required, min 2)</li>
               <li>• <strong>answer</strong>: Correct answer from options (required)</li>
@@ -225,7 +225,7 @@ const BulkUploadDialog = ({ onClose, onSuccess }) => {
           <div className="flex flex-col sm:flex-row gap-3 pt-2">
             <button
               onClick={onClose}
-              className="flex-1 px-4 py-3 sm:py-2 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:bg-[#0a0a0a] transition-colors min-h-[44px] touch-manipulation font-medium"
+              className="flex-1 px-4 py-3 sm:py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors min-h-[44px] touch-manipulation font-medium"
             >
               Close
             </button>

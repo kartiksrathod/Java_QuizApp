@@ -100,31 +100,31 @@ const QuizResults = () => {
         </div>
 
         {/* Score Card */}
-        <div className="bg-white dark:bg-[#111111] rounded-xl shadow-sm border border-gray-200 dark:border-gray-800 p-4 sm:p-6">
-          <h2 className="text-lg xs:text-xl font-bold text-gray-900 dark:text-white mb-4">Your Score</h2>
+        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6">
+          <h2 className="text-lg xs:text-xl font-bold text-gray-900 mb-4">Your Score</h2>
           <div className="grid grid-cols-1 xs:grid-cols-3 gap-4 sm:gap-6">
             <div className="text-center p-3 xs:p-4 bg-blue-50 rounded-lg">
               <p className="text-3xl xs:text-4xl font-bold text-blue-600">{score.percentage}%</p>
-              <p className="text-xs xs:text-sm text-gray-600 dark:text-gray-400 mt-1">Score</p>
+              <p className="text-xs xs:text-sm text-gray-600 mt-1">Score</p>
             </div>
             <div className="text-center p-3 xs:p-4 bg-green-50 rounded-lg">
               <p className="text-3xl xs:text-4xl font-bold text-green-600">
                 {score.correct}/{score.total}
               </p>
-              <p className="text-xs xs:text-sm text-gray-600 dark:text-gray-400 mt-1">Correct Answers</p>
+              <p className="text-xs xs:text-sm text-gray-600 mt-1">Correct Answers</p>
             </div>
             <div className="text-center p-3 xs:p-4 bg-purple-50 rounded-lg">
               <p className="text-3xl xs:text-4xl font-bold text-purple-600">
                 {timeSpentMinutes}:{timeSpentSeconds.toString().padStart(2, '0')}
               </p>
-              <p className="text-xs xs:text-sm text-gray-600 dark:text-gray-400 mt-1">Time Spent</p>
+              <p className="text-xs xs:text-sm text-gray-600 mt-1">Time Spent</p>
             </div>
           </div>
         </div>
 
         {/* Detailed Results */}
-        <div className="bg-white dark:bg-[#111111] rounded-xl shadow-sm border border-gray-200 dark:border-gray-800 p-6">
-          <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Detailed Results</h2>
+        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+          <h2 className="text-xl font-bold text-gray-900 mb-4">Detailed Results</h2>
           <div className="space-y-4">
             {questions.map((question, idx) => {
               const userAnswer = answers[idx];
@@ -147,7 +147,7 @@ const QuizResults = () => {
                       <XCircle className="w-6 h-6 text-red-600 flex-shrink-0 mt-1" />
                     )}
                     <div className="flex-1">
-                      <p className="font-medium text-gray-900 dark:text-white mb-2">
+                      <p className="font-medium text-gray-900 mb-2">
                         Q{idx + 1}. {question.question}
                       </p>
                       <div className="space-y-1 text-sm">
@@ -166,7 +166,7 @@ const QuizResults = () => {
                           </p>
                         )}
                         {question.explanation && (
-                          <p className="mt-2 text-gray-600 dark:text-gray-400">
+                          <p className="mt-2 text-gray-600">
                             <span className="font-medium">Explanation:</span>{' '}
                             {question.explanation}
                           </p>
@@ -217,7 +217,7 @@ const QuizResults = () => {
           </Link>
           <Link
             to="/user/dashboard"
-            className="flex items-center justify-center gap-2 px-4 xs:px-6 py-3 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 font-semibold rounded-lg hover:bg-gray-50 dark:bg-[#0a0a0a] transition-colors text-sm xs:text-base xs:col-span-2 sm:col-span-1"
+            className="flex items-center justify-center gap-2 px-4 xs:px-6 py-3 border border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition-colors text-sm xs:text-base xs:col-span-2 sm:col-span-1"
             data-testid="back-to-dashboard-button"
           >
             <Home className="w-4 h-4 xs:w-5 xs:h-5" />

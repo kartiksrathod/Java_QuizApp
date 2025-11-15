@@ -150,10 +150,10 @@ const QuestionManagement = () => {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
             <div className="flex items-center gap-3">
-              <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Question Management</h1>
+              <h1 className="text-3xl font-bold text-gray-900">Question Management</h1>
               <TutorialButton tutorialId={TUTORIAL_IDS.QUESTION_MANAGEMENT} />
             </div>
-            <p className="text-gray-600 dark:text-gray-400 mt-1">
+            <p className="text-gray-600 mt-1">
               {filteredQuestions.length} questions found
             </p>
           </div>
@@ -189,7 +189,7 @@ const QuestionManagement = () => {
         </div>
 
         {/* Filters */}
-        <div className="bg-white dark:bg-[#111111] rounded-xl shadow-sm border border-gray-200 dark:border-gray-800 p-4">
+        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {/* Search */}
             <div className="md:col-span-2">
@@ -200,7 +200,7 @@ const QuestionManagement = () => {
                   placeholder="Search questions..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   data-testid="search-questions-input"
                 />
               </div>
@@ -211,7 +211,7 @@ const QuestionManagement = () => {
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 data-testid="filter-category-select"
               >
                 <option value="">All Categories</option>
@@ -228,7 +228,7 @@ const QuestionManagement = () => {
               <select
                 value={selectedDifficulty}
                 onChange={(e) => setSelectedDifficulty(e.target.value)}
-                className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 data-testid="filter-difficulty-select"
               >
                 <option value="">All Difficulties</option>
@@ -239,7 +239,7 @@ const QuestionManagement = () => {
               {(searchTerm || selectedCategory || selectedDifficulty) && (
                 <button
                   onClick={clearFilters}
-                  className="px-3 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:bg-[#1a1a1a] rounded-lg transition-colors"
+                  className="px-3 py-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
                   title="Clear filters"
                 >
                   <X className="w-5 h-5" />
@@ -250,11 +250,11 @@ const QuestionManagement = () => {
         </div>
 
         {/* Questions Table */}
-        <div className="bg-white dark:bg-[#111111] rounded-xl shadow-sm border border-gray-200 dark:border-gray-800 overflow-hidden">
+        <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
           <div className="overflow-x-auto -mx-4 sm:mx-0">
             <div className="inline-block min-w-full align-middle">
               <table className="min-w-full divide-y divide-gray-200" data-testid="questions-table">
-                <thead className="bg-gray-50 dark:bg-[#0a0a0a]">
+                <thead className="bg-gray-50">
                   <tr>
                     <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap">
                       Question
@@ -273,12 +273,12 @@ const QuestionManagement = () => {
                     </th>
                   </tr>
                 </thead>
-                <tbody className="bg-white dark:bg-[#111111] divide-y divide-gray-200">
+                <tbody className="bg-white divide-y divide-gray-200">
                   {filteredQuestions.length > 0 ? (
                     filteredQuestions.map((question) => (
-                      <tr key={question.id} className="hover:bg-gray-50 dark:bg-[#0a0a0a] transition-colors" data-testid="question-row">
+                      <tr key={question.id} className="hover:bg-gray-50 transition-colors" data-testid="question-row">
                         <td className="px-3 sm:px-6 py-4 max-w-xs">
-                          <p className="text-sm font-medium text-gray-900 dark:text-white line-clamp-2">
+                          <p className="text-sm font-medium text-gray-900 line-clamp-2">
                             {question.question}
                           </p>
                           <p className="text-xs text-gray-500 mt-1">by {question.created_by}</p>
@@ -301,7 +301,7 @@ const QuestionManagement = () => {
                             {question.difficulty}
                           </span>
                         </td>
-                        <td className="hidden md:table-cell px-3 sm:px-6 py-4 text-sm text-gray-900 dark:text-white max-w-xs truncate">
+                        <td className="hidden md:table-cell px-3 sm:px-6 py-4 text-sm text-gray-900 max-w-xs truncate">
                           {question.answer}
                         </td>
                         <td className="px-3 sm:px-6 py-4 text-right whitespace-nowrap">
