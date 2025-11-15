@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { TutorialProvider } from './context/TutorialContext';
+import { ThemeProvider } from './context/ThemeContext';
 import { ToastContainer } from './components/shared/Toast';
 import ProtectedRoute from './components/shared/ProtectedRoute';
 import TutorialOverlay from './components/shared/Tutorial/TutorialOverlay';
@@ -28,91 +29,93 @@ import Bookmarks from './components/user/Bookmarks';
 
 function App() {
   return (
-    <AuthProvider>
-      <TutorialProvider>
-        <BrowserRouter>
-          <ToastContainer />
-          <TutorialOverlay />
-          <Routes>
-          {/* Public Routes */}
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+    <ThemeProvider>
+      <AuthProvider>
+        <TutorialProvider>
+          <BrowserRouter>
+            <ToastContainer />
+            <TutorialOverlay />
+            <Routes>
+            {/* Public Routes */}
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
 
-          {/* Admin Routes */}
-          <Route
-            path="/admin/dashboard"
-            element={
-              <ProtectedRoute adminOnly>
-                <AdminDashboard />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/admin/questions"
-            element={
-              <ProtectedRoute adminOnly>
-                <QuestionManagement />
-              </ProtectedRoute>
-            }
-          />
+            {/* Admin Routes */}
+            <Route
+              path="/admin/dashboard"
+              element={
+                <ProtectedRoute adminOnly>
+                  <AdminDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/questions"
+              element={
+                <ProtectedRoute adminOnly>
+                  <QuestionManagement />
+                </ProtectedRoute>
+              }
+            />
 
-          {/* User Routes */}
-          <Route
-            path="/user/dashboard"
-            element={
-              <ProtectedRoute>
-                <UserDashboard />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/user/quiz"
-            element={
-              <ProtectedRoute>
-                <QuizSelection />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/user/quiz/start"
-            element={
-              <ProtectedRoute>
-                <QuizInterface />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/user/quiz/results"
-            element={
-              <ProtectedRoute>
-                <QuizResults />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/user/profile"
-            element={
-              <ProtectedRoute>
-                <Profile />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/user/bookmarks"
-            element={
-              <ProtectedRoute>
-                <Bookmarks />
-              </ProtectedRoute>
-            }
-          />
+            {/* User Routes */}
+            <Route
+              path="/user/dashboard"
+              element={
+                <ProtectedRoute>
+                  <UserDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/user/quiz"
+              element={
+                <ProtectedRoute>
+                  <QuizSelection />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/user/quiz/start"
+              element={
+                <ProtectedRoute>
+                  <QuizInterface />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/user/quiz/results"
+              element={
+                <ProtectedRoute>
+                  <QuizResults />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/user/profile"
+              element={
+                <ProtectedRoute>
+                  <Profile />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/user/bookmarks"
+              element={
+                <ProtectedRoute>
+                  <Bookmarks />
+                </ProtectedRoute>
+              }
+            />
 
-          {/* Default Redirect */}
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </BrowserRouter>
-      </TutorialProvider>
-    </AuthProvider>
+            {/* Default Redirect */}
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </BrowserRouter>
+        </TutorialProvider>
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
 

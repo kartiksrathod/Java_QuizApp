@@ -1,9 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BookOpen, Trophy, Users, Brain, Zap, Shield, ArrowRight, CheckCircle } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
+import { BookOpen, Trophy, Users, Brain, Zap, Shield, ArrowRight, CheckCircle, Sun, Moon } from 'lucide-react';
 
 const Home = () => {
   const navigate = useNavigate();
+  const { theme, toggleTheme } = useTheme();
 
   const features = [
     {
@@ -48,28 +50,41 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950">
+    <div className="min-h-screen bg-white dark:bg-[#0a0a0a] transition-colors duration-200">
       {/* Navigation */}
-      <nav className="bg-gray-900 border-b border-gray-800 shadow-xl sticky top-0 z-50 backdrop-blur-lg bg-opacity-90">
+      <nav className="bg-white dark:bg-[#111111] border-b border-gray-200 dark:border-gray-800 shadow-sm sticky top-0 z-50 backdrop-blur-lg bg-opacity-90 dark:bg-opacity-90 transition-colors duration-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-2">
-              <Brain className="w-8 h-8 text-blue-500" />
-              <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              <Brain className="w-8 h-8 text-blue-600 dark:text-blue-500" />
+              <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-500 dark:to-purple-500 bg-clip-text text-transparent">
                 QuizAI
               </span>
             </div>
             <div className="flex items-center space-x-4">
+              {/* Theme Toggle Button */}
+              <button
+                onClick={toggleTheme}
+                className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200"
+                aria-label="Toggle theme"
+                data-testid="theme-toggle-btn"
+              >
+                {theme === 'light' ? (
+                  <Moon className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+                ) : (
+                  <Sun className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+                )}
+              </button>
               <button
                 onClick={() => navigate('/login')}
-                className="text-gray-300 hover:text-blue-400 font-medium transition-colors"
+                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors"
                 data-testid="nav-login-btn"
               >
                 Login
               </button>
               <button
                 onClick={() => navigate('/register')}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors shadow-lg shadow-blue-500/20"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors"
                 data-testid="nav-register-btn"
               >
                 Get Started
@@ -80,22 +95,22 @@ const Home = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-20 pb-32 px-4 sm:px-6 lg:px-8">
+      <section className="pt-20 pb-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50 dark:from-[#0a0a0a] dark:to-[#111111] transition-colors duration-200">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-5xl sm:text-6xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
               Master Knowledge with
-              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-500 dark:to-purple-500 bg-clip-text text-transparent">
                 {" "}AI-Powered Quizzes
               </span>
             </h1>
-            <p className="text-xl text-gray-400 mb-8 leading-relaxed">
+            <p className="text-xl text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
               Challenge yourself with intelligent quizzes, track your progress, and achieve mastery in your favorite subjects. Built for learners, educators, and knowledge enthusiasts.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button
                 onClick={() => navigate('/register')}
-                className="group bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center gap-2 transition-all shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 transform hover:-translate-y-0.5"
+                className="group bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center gap-2 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                 data-testid="hero-get-started-btn"
               >
                 Get Started Free
@@ -103,19 +118,19 @@ const Home = () => {
               </button>
               <button
                 onClick={() => navigate('/login')}
-                className="bg-gray-800 hover:bg-gray-700 text-gray-100 px-8 py-4 rounded-lg font-semibold text-lg border-2 border-gray-700 transition-all"
+                className="bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100 px-8 py-4 rounded-lg font-semibold text-lg border-2 border-gray-200 dark:border-gray-700 transition-all"
                 data-testid="hero-login-btn"
               >
                 Login to Account
               </button>
             </div>
-            <div className="mt-8 flex items-center justify-center gap-6 text-sm text-gray-500">
+            <div className="mt-8 flex items-center justify-center gap-6 text-sm text-gray-500 dark:text-gray-500">
               <div className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5 text-green-400" />
+                <CheckCircle className="w-5 h-5 text-green-500 dark:text-green-400" />
                 <span>No credit card required</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5 text-green-400" />
+                <CheckCircle className="w-5 h-5 text-green-500 dark:text-green-400" />
                 <span>Free forever</span>
               </div>
             </div>
@@ -124,13 +139,13 @@ const Home = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-gray-900">
+      <section className="py-20 bg-gray-50 dark:bg-[#111111] transition-colors duration-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
               Everything You Need to Excel
             </h2>
-            <p className="text-xl text-gray-400">
+            <p className="text-xl text-gray-600 dark:text-gray-400">
               Powerful features designed to enhance your learning experience
             </p>
           </div>
@@ -139,16 +154,16 @@ const Home = () => {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="p-6 rounded-xl border-2 border-gray-800 hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 bg-gray-800/50 backdrop-blur-sm"
+                className="p-6 rounded-xl border-2 border-gray-200 dark:border-gray-800 hover:border-blue-500 dark:hover:border-blue-500 hover:shadow-lg transition-all duration-300 bg-white dark:bg-[#1a1a1a]"
                 data-testid={`feature-card-${index}`}
               >
-                <div className="w-14 h-14 bg-blue-500/10 rounded-lg flex items-center justify-center text-blue-400 mb-4">
+                <div className="w-14 h-14 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center text-blue-600 dark:text-blue-400 mb-4">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-2">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-gray-400">
+                <p className="text-gray-600 dark:text-gray-400">
                   {feature.description}
                 </p>
               </div>
@@ -158,40 +173,40 @@ const Home = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-900/30 to-purple-900/30 border-y border-gray-800">
+      <section className="py-20 bg-white dark:bg-[#0a0a0a] border-y border-gray-200 dark:border-gray-800 transition-colors duration-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-white mb-6">
+              <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
                 Why Choose QuizAI Platform?
               </h2>
-              <p className="text-gray-400 text-lg mb-8">
+              <p className="text-gray-600 dark:text-gray-400 text-lg mb-8">
                 Join thousands of learners who are already improving their knowledge and skills with our comprehensive quiz platform.
               </p>
               <div className="space-y-4">
                 {benefits.map((benefit, index) => (
                   <div key={index} className="flex items-center gap-3">
-                    <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0" />
-                    <span className="text-gray-200 text-lg">{benefit}</span>
+                    <CheckCircle className="w-6 h-6 text-green-500 dark:text-green-400 flex-shrink-0" />
+                    <span className="text-gray-700 dark:text-gray-300 text-lg">{benefit}</span>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="bg-gray-800/50 backdrop-blur-lg rounded-2xl p-8 border border-gray-700">
+            <div className="bg-gray-50 dark:bg-[#111111] rounded-2xl p-8 border border-gray-200 dark:border-gray-800 transition-colors duration-200">
               <div className="space-y-6">
                 <div className="text-center">
-                  <div className="text-5xl font-bold text-white mb-2">10,000+</div>
-                  <div className="text-gray-400">Questions Available</div>
+                  <div className="text-5xl font-bold text-gray-900 dark:text-white mb-2">10,000+</div>
+                  <div className="text-gray-600 dark:text-gray-400">Questions Available</div>
                 </div>
-                <div className="h-px bg-gray-700"></div>
+                <div className="h-px bg-gray-200 dark:bg-gray-800"></div>
                 <div className="text-center">
-                  <div className="text-5xl font-bold text-white mb-2">5,000+</div>
-                  <div className="text-gray-400">Active Users</div>
+                  <div className="text-5xl font-bold text-gray-900 dark:text-white mb-2">5,000+</div>
+                  <div className="text-gray-600 dark:text-gray-400">Active Users</div>
                 </div>
-                <div className="h-px bg-gray-700"></div>
+                <div className="h-px bg-gray-200 dark:bg-gray-800"></div>
                 <div className="text-center">
-                  <div className="text-5xl font-bold text-white mb-2">98%</div>
-                  <div className="text-gray-400">Satisfaction Rate</div>
+                  <div className="text-5xl font-bold text-gray-900 dark:text-white mb-2">98%</div>
+                  <div className="text-gray-600 dark:text-gray-400">Satisfaction Rate</div>
                 </div>
               </div>
             </div>
@@ -200,27 +215,27 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gray-900">
+      <section className="py-20 bg-gray-50 dark:bg-[#111111] transition-colors duration-200">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-white mb-6">
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
             Ready to Start Your Learning Journey?
           </h2>
-          <p className="text-xl text-gray-400 mb-8">
+          <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">
             Join our community today and unlock your full potential with AI-powered quizzes
           </p>
           <button
             onClick={() => navigate('/register')}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-lg font-semibold text-lg inline-flex items-center gap-2 transition-all shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 transform hover:-translate-y-0.5"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-lg font-semibold text-lg inline-flex items-center gap-2 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
             data-testid="cta-register-btn"
           >
             Create Free Account
             <ArrowRight className="w-5 h-5" />
           </button>
-          <p className="mt-4 text-gray-500">
+          <p className="mt-4 text-gray-500 dark:text-gray-500">
             Already have an account?{' '}
             <button
               onClick={() => navigate('/login')}
-              className="text-blue-400 hover:text-blue-300 font-semibold"
+              className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold"
               data-testid="cta-login-link"
             >
               Login here
@@ -230,14 +245,14 @@ const Home = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-950 border-t border-gray-800 text-white py-12">
+      <footer className="bg-white dark:bg-[#0a0a0a] border-t border-gray-200 dark:border-gray-800 text-gray-900 dark:text-white py-12 transition-colors duration-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-2 mb-4 md:mb-0">
-              <Brain className="w-8 h-8 text-blue-500" />
+              <Brain className="w-8 h-8 text-blue-600 dark:text-blue-500" />
               <span className="text-2xl font-bold">QuizAI</span>
             </div>
-            <div className="text-gray-500">
+            <div className="text-gray-500 dark:text-gray-500">
               © 2025 QuizAI Platform. All rights reserved.
             </div>
           </div>
