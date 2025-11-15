@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import { BookOpen, Mail, Lock, User, AlertCircle, Brain } from 'lucide-react';
+import { useTheme } from '../../context/ThemeContext';
+import { BookOpen, Mail, Lock, User, AlertCircle, Brain, Sun, Moon } from 'lucide-react';
 import LoadingSpinner from '../shared/LoadingSpinner';
 import { showToast } from '../shared/Toast';
 import { validateEmail, validatePassword } from '../../utils/helpers';
@@ -9,6 +10,7 @@ import { validateEmail, validatePassword } from '../../utils/helpers';
 const Register = () => {
   const navigate = useNavigate();
   const { register } = useAuth();
+  const { theme, toggleTheme } = useTheme();
   const [formData, setFormData] = useState({
     email: '',
     username: '',
