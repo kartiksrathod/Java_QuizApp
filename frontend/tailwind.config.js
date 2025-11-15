@@ -4,10 +4,30 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class', // Enable class-based dark mode
   theme: {
     extend: {
       screens: {
         'xs': '475px',
+      },
+      colors: {
+        // Custom color palette for true dark and clean light themes
+        dark: {
+          bg: '#0a0a0a',
+          'bg-secondary': '#111111',
+          'bg-tertiary': '#1a1a1a',
+          border: '#262626',
+          text: '#e5e5e5',
+          'text-secondary': '#a3a3a3',
+        },
+        light: {
+          bg: '#ffffff',
+          'bg-secondary': '#f9fafb',
+          'bg-tertiary': '#f3f4f6',
+          border: '#e5e7eb',
+          text: '#111827',
+          'text-secondary': '#6b7280',
+        },
       },
       animation: {
         'fadeIn': 'fadeIn 0.3s ease-in-out',
