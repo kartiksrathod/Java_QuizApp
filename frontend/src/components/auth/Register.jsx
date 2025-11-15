@@ -237,14 +237,14 @@ const Register = () => {
           </button>
 
           <div className="text-center pt-2">
-            <p className="text-sm text-gray-400">
+            <p className="text-sm text-gray-600 dark:text-gray-400">
               Already have an account?{' '}
-              <Link to="/login" className="font-medium text-blue-400 hover:text-blue-300">
+              <Link to="/login" className="font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">
                 Sign in
               </Link>
             </p>
-            <p className="text-sm text-gray-500 mt-2">
-              <Link to="/" className="hover:text-gray-300">
+            <p className="text-sm text-gray-500 dark:text-gray-500 mt-2">
+              <Link to="/" className="hover:text-gray-700 dark:hover:text-gray-300">
                 ← Back to Home
               </Link>
             </p>
