@@ -105,7 +105,7 @@ const TutorialOverlay = () => {
       {/* Tooltip */}
       <div
         ref={tooltipRef}
-        className="fixed z-[1000] bg-white dark:bg-[#111111] rounded-lg shadow-2xl p-6 max-w-md animate-fadeIn"
+        className="fixed z-[1000] bg-white rounded-lg shadow-2xl p-6 max-w-md animate-fadeIn"
         style={{
           pointerEvents: 'auto',
           top: `${tooltipPosition.top}px`,
@@ -121,7 +121,7 @@ const TutorialOverlay = () => {
         {/* Close Button */}
         <button
           onClick={skipTutorial}
-          className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 dark:text-gray-400 transition-colors"
+          className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 transition-colors"
           data-testid="tutorial-close-button"
         >
           <X className="w-5 h-5" />
@@ -129,13 +129,13 @@ const TutorialOverlay = () => {
 
         {/* Content */}
         <div className="pr-6">
-          <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{step.title}</h3>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">{step.content}</p>
+          <h3 className="text-lg font-bold text-gray-900 mb-2">{step.title}</h3>
+          <p className="text-sm text-gray-600 mb-4 leading-relaxed">{step.content}</p>
         </div>
 
         {/* Progress */}
         <div className="mb-4">
-          <div className="flex justify-between text-xs text-gray-500 dark:text-gray-500 mb-1">
+          <div className="flex justify-between text-xs text-gray-500 mb-1">
             <span>Step {currentStep + 1} of {steps.length}</span>
           </div>
           <div className="w-full bg-gray-200 rounded-full h-1.5">
@@ -150,7 +150,7 @@ const TutorialOverlay = () => {
         <div className="flex items-center justify-between gap-3">
           <button
             onClick={skipTutorial}
-            className="text-sm text-gray-500 dark:text-gray-500 hover:text-gray-700 dark:text-gray-300 transition-colors"
+            className="text-sm text-gray-500 hover:text-gray-700 transition-colors"
             data-testid="tutorial-skip-button"
           >
             Skip Tutorial
@@ -160,7 +160,7 @@ const TutorialOverlay = () => {
             {currentStep > 0 && (
               <button
                 onClick={previousStep}
-                className="px-4 py-2 text-sm border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:bg-[#0a0a0a] transition-colors flex items-center gap-1"
+                className="px-4 py-2 text-sm border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors flex items-center gap-1"
                 data-testid="tutorial-previous-button"
               >
                 <ChevronLeft className="w-4 h-4" />
