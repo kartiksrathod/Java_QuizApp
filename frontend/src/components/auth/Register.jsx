@@ -85,20 +85,34 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 flex items-center justify-center px-4 py-8">
-      <div className="max-w-md w-full space-y-8 bg-gray-900 p-8 rounded-2xl shadow-2xl border border-gray-800 fade-in">
+    <div className="min-h-screen bg-white dark:bg-[#0a0a0a] flex items-center justify-center px-4 py-8 transition-colors duration-200">
+      {/* Theme toggle button - fixed position */}
+      <button
+        onClick={toggleTheme}
+        className="fixed top-4 right-4 p-3 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200 shadow-lg z-50"
+        aria-label="Toggle theme"
+        data-testid="register-theme-toggle"
+      >
+        {theme === 'light' ? (
+          <Moon className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+        ) : (
+          <Sun className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+        )}
+      </button>
+
+      <div className="max-w-md w-full space-y-8 bg-white dark:bg-[#111111] p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-800 fade-in transition-colors duration-200">
         {/* Logo and title */}
         <div className="text-center">
           <div className="flex justify-center">
-            <Brain className="w-16 h-16 text-blue-500" />
+            <Brain className="w-16 h-16 text-blue-600 dark:text-blue-500" />
           </div>
-          <h2 className="mt-4 text-3xl font-bold text-white">Create Account</h2>
-          <p className="mt-2 text-sm text-gray-400">Join QuizAI Platform</p>
+          <h2 className="mt-4 text-3xl font-bold text-gray-900 dark:text-white">Create Account</h2>
+          <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">Join QuizAI Platform</p>
         </div>
 
         {/* General error message */}
         {errors.general && (
-          <div className="bg-red-500/10 border border-red-500/50 text-red-400 px-4 py-3 rounded-lg flex items-center gap-2">
+          <div className="bg-red-50 dark:bg-red-500/10 border border-red-200 dark:border-red-500/50 text-red-700 dark:text-red-400 px-4 py-3 rounded-lg flex items-center gap-2">
             <AlertCircle className="w-5 h-5 flex-shrink-0" />
             <span className="text-sm">{errors.general}</span>
           </div>
